@@ -4,7 +4,7 @@ interface Props {
     textToCopy: string;
 }
 
-export default function CopyButton({ textToCopy }: Props) {
+function CopyButton({ textToCopy }: Props) {
     const [isCopied, setIsCopied] = useState(false);
 
     const handleCopy = () => {
