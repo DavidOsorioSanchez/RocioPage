@@ -2,15 +2,17 @@
 import ButtonNavigation from "./ButtonNavigation.astro";
 ---
 
-<nav class="min-h-16 sticky top-0 px-4 flex items-center justify-between bg-black/10 shadow-xl">
+<nav class="min-h-16 sticky top-0 px-4 flex items-center justify-between bg-black/10 shadow-xl z-30">
 	<span class="w-fit flex items-center gap-2 text-black/80 font-bold flex-nowrap  py-2 ">
         <img src="/broom-icon.svg" alt="broom" class="size-16">
-        <p class="text-xl">LimpiezaRocio</p>
+        <p class="text-xl block">LimpiezaRocio</p>
 	</span>
-    <div class="flex items-center gap-2 flex-nowrap">
+    <div class="flex items-center gap-2 flex-nowrap ">
         <ButtonNavigation links="/trabajos" title="🧾 Trabajos" />
         <ButtonNavigation links="/contactanos" title="📲 contactanos" />
+        <img src="/menu.svg" alt="menu" class="size-12 rounded-full bg-black/10 p-2 block min-[560px]:hidden">
     </div>
+
     <a href="https://limpiezarocio.com" target="_blank" rel="noreferrer" class="bg-black/10 rounded-full hover:brightness-110 transition-all duration-200 p-1 hidden md:block">
         <img src="/whatsapp.svg" alt="whatsapp" class="size-14 p-1 ">
     </a>
