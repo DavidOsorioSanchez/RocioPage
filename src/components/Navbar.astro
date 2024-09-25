@@ -20,7 +20,12 @@ const { homeSelected,contactoSelected, workSelected } = Astro.props;
         <ButtonNavigation links="/" title="🏠 principal" selected={homeSelected} />
         <ButtonNavigation links="/trabajos" title="🧾 Trabajos" selected={workSelected} />
         <ButtonNavigation links="/contactanos" title="📲 contactanos" selected={contactoSelected} />
-        <Menu client:load />
+        <Menu
+            PrinSelected={homeSelected}
+            TrabSelected={workSelected}
+            ContSelected={contactoSelected}
+            client:load 
+        />
     </div>
 
     <a href="https://limpiezarocio.com" target="_blank" rel="noreferrer" class="bg-black/10 rounded-full hover:brightness-110 transition-all duration-200 p-1 hidden md:block">
