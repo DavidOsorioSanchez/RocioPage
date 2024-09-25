@@ -10,8 +10,8 @@ export default function Menu() {
 
   return (
     <span className="flex flex-col w-fit justify-between items-end min-h-[200px] h-auto absolute top-3 right-3 min-[685px]:hidden">
-      <button className="cursor-hand z-50 active:bg-dark-blue" onClick={handleClick}>
-        <img src="/menu.svg" alt="menu" className="size-12 rounded-full bg-black/10 p-2 block " />
+      <button className="cursor-hand z-50" onClick={handleClick}>
+        <img src="/menu.svg" alt="menu" className="size-12 rounded-full bg-black/10 p-2 block active:bg-blue" />
       </button>
       {showMenu && (
         <ul className="flex flex-col items-center rounded-b-xl bg-black/10 text-black/80 text-lg font-bold z-10">
