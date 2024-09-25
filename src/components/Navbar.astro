@@ -1,6 +1,6 @@
 ---
 import ButtonNavigation from "./ButtonNavigation.astro";
-import Menu from "./react/menu";
+import Menu from "./react/Menu.tsx";
 
 interface Props {
 	homeSelected: boolean;
@@ -26,5 +26,4 @@ const { homeSelected,contactoSelected, workSelected } = Astro.props;
     <a href="https://limpiezarocio.com" target="_blank" rel="noreferrer" class="bg-black/10 rounded-full hover:brightness-110 transition-all duration-200 p-1 hidden md:block">
         <img src="/whatsapp.svg" alt="whatsapp" class="size-12 p-1 ">
     </a>
-    <!-- <CopyButton textToCopy="https://limpiezarocio.com" /> -->
 </nav>
