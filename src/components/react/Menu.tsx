@@ -5,11 +5,12 @@ export default function Menu() {
 
   const handleClick = () => {
     setShowMenu(!showMenu);
+    console.log(showMenu);
   };
 
   return (
     <span className="flex flex-col w-fit justify-between items-end min-h-[200px] h-auto absolute top-3 right-3 min-[685px]:hidden">
-      <button className="cursor-hand z-10" onClick={handleClick}>
+      <button className="cursor-hand z-50 active:bg-dark-blue" onClick={handleClick}>
         <img src="/menu.svg" alt="menu" className="size-12 rounded-full bg-black/10 p-2 block " />
       </button>
       {showMenu && (
