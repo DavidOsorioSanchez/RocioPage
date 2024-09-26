@@ -10,8 +10,8 @@ module.exports = {
 			animation: {
 				'bajada': 'bajar 1s ease-in-out',
 				'aparece': 'aparecer 0.5s ease-in-out',
-				'aparecerLadoDerecho': 'aparecerLadoDerecho 1.5s ease-in-out',
-				'aparecerLadoIzquierdo': 'aparecerLadoIzquierdo 1.5s ease-in-out',
+				'aparecerLadoDerecho': 'aparecerLadoDerecho 1.5s ease-in-out ',
+				'aparecerLadoIzquierdo': 'aparecerLadoIzquierdo 1.5s ease-in-out ',
 				'voltear': 'voltear 0.5s ease-in-out',
 			},
 			keyframes: {
