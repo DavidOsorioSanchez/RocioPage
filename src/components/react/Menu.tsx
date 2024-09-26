@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 interface Props {
   PrinSelected: boolean;
@@ -10,7 +10,7 @@ export default function Menu({PrinSelected, TrabSelected, ContSelected}: Props) 
   const [showMenu, setShowMenu] = useState(false);
 
   const handleClick = () => {
-    setShowMenu(!showMenu);
+      setShowMenu(!showMenu);
   };
 
   return (
@@ -19,7 +19,7 @@ export default function Menu({PrinSelected, TrabSelected, ContSelected}: Props) 
         <img src="/menu.svg" alt="menu" className={`size-12 rounded-full ${showMenu ? "bg-light-blue" : "bg-black/10"} p-2 block active:bg-blue`} />
       </button>
       {showMenu && (
-        <ul className="flex flex-col items-center rounded-b-xl bg-black/10 text-black/80 text-lg font-bold z-10">
+        <ul className="flex flex-col items-center rounded-b-xl bg-black/10 text-black/80 text-lg font-bold z-10 animate-aparece ">
           <li className={`py-2 px-3 w-full ${PrinSelected ? "bg-light-blue" : ""} ${PrinSelected ? "hover:bg-blue" : "hover:bg-light-blue"}`}>
             <a href="/" className="block">🏠 Principal</a>
           </li>
