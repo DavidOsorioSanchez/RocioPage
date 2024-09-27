@@ -4,11 +4,10 @@ interface Props {
     children: React.ReactNode;
     textoCopiar : string;
     width: string;
+    animation?: string;
 }
 
-const span = '-z-10';
-
-export default function CopyButton({ children, textoCopiar, width }: Props) {
+export default function CopyButton({ children, textoCopiar, width, animation }: Props) {
     const [textToCopy, setTextToCopy] = useState(textoCopiar);
 
     const handleCopy = () => {
@@ -22,7 +21,7 @@ export default function CopyButton({ children, textoCopiar, width }: Props) {
     };
 
     return (
-        <div className='relative min-w-52 w-max max-w-96 flex items-center justify-center'>
+        <div className={`relative min-w-52 w-max max-w-96 flex items-center justify-center ${animation}`}>
             <button onClick={handleCopy} className="absolute top-0 min-w-52 w-max  h-16 bg-[#e3dfda] text-black/80 font-bold py-2 px-4 rounded-md transition-all duration-300 hover:scale-105  active:opacity-0 active:active:duration-100">
                 {children}
             </button>
