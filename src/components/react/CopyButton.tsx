@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 interface Props {
     children: React.ReactNode;
     textoCopiar : string;
-    width: string;
+    width?: string;
     animation?: string;
 }
 

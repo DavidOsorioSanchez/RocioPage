@@ -4,25 +4,25 @@ import Menu from "./react/Menu.tsx";
 
 interface Props {
 	homeSelected: boolean;
-	workSelected: boolean;
+	AbouSelected: boolean;
 	contactoSelected: boolean;
 }
 
-const { homeSelected,contactoSelected, workSelected } = Astro.props;
+const { homeSelected,contactoSelected, AbouSelected } = Astro.props;
 ---
 
-<nav class="min-h-16 sticky top-0 px-4 flex items-center justify-between bg-[#e3dfda]/90 shadow-xl z-30 max-w-screen animate-bajada">
+<nav class="min-h-16 sticky top-0 px-2 flex items-center justify-between bg-[#e3dfda]/90 shadow-xl z-30 max-w-screen animate-bajada min-[340px]:px-4">
 	<span class="w-fit flex items-center gap-2 text-black/80 font-bold flex-nowrap  py-2 ">
-        <img src="/broom-icon.svg" alt="broom" class="size-16">
-        <p id="title" class="text-3xl block">LimpiezaRocio</p>
+        <img src="/ladle-icon.svg" alt="ladle" class="size-16">
+        <p id="title" class="text-3xl block">Comida a un click</p>
 	</span>
     <div class="flex items-center gap-2 flex-nowrap ">
-        <ButtonNavigation links="/" title="🏠 principal" selected={homeSelected} />
-        <ButtonNavigation links="/trabajos" title="🧾 Trabajos" selected={workSelected} />
+        <ButtonNavigation links="/" title="🍽️ Carta" selected={homeSelected} />
+        <ButtonNavigation links="/informacion" title="🧾 Informacion" selected={AbouSelected} />
         <ButtonNavigation links="/contactanos" title="📲 contactanos" selected={contactoSelected} />
         <Menu
             PrinSelected={homeSelected}
-            TrabSelected={workSelected}
+            AbouSelected={AbouSelected}
             ContSelected={contactoSelected}
             client:load 
         />

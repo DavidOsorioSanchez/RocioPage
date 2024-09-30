@@ -6,7 +6,24 @@ module.exports = {
 		"./node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}",
 	],
 	theme: {
+		screens: {
+			'phone': '400px',
+			'tablet': '640px' ,
+			'laptop': '1024px',
+			'desktop': '1280px',
+		},
 		extend: {
+			aspectRatio: {
+				'16/9': 'calc(9 / 16 * 100%)',
+				'4/3': 'calc(3 / 4 * 100%)',
+				'3/2': 'calc(2 / 3 * 100%)',
+				'1/1': '100%',
+				'2/1': 'calc(100% / 2)',
+				'3/1': 'calc(100% / 3)',
+				'3/4': 'calc(100% / 3)',
+				'2/3': 'calc(100% / 1.5)',
+				'9/16': 'calc(16 / 9 * 100%)',
+			},
 			animation: {
 				'bajada': 'bajar 1s ease-in-out',
 				'aparece': 'aparecer 0.5s ease-in-out',

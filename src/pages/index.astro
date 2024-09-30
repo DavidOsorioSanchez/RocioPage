@@ -1,43 +1,17 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Navbar from '../components/Navbar.astro';
-import CopyButton from '../components/react/CopyButton.tsx';
 ---
 
-<Layout title="LimpiezaRocio">
+<Layout title="Comida a un click">
 	<Navbar 
 		homeSelected={true}
-		workSelected={false}
+		AbouSelected={false}
 		contactoSelected={false}
 	/>
-	<main class="flex flex-col min-h-screen w-screen items-center justify-center p-4 gap-4 border-b-2 border-black/10">
-		<section class="flex flex-wrap-reverse gap-4 items-center justify-center">
-			<div class="max-w-2xl flex flex-col gap-4 items-center">
-				<p class="text-xl font-semibold animate-aparecerLadoIzquierdo delay-150">Hola, Mi nombre es <i class="text-dark-blue underline decoration-solid">Rocio Sánchez.</i></p>
-
-				<p class="animate-aparecerLadoDerecho delay-200">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ad aut incidunt magni nisi ea placeat? Porro vitae corporis atque explicabo quos libero eum, sit deleniti quasi ratione reiciendis suscipit magni.</p>
-				<p class="animate-aparecerLadoIzquierdo delay-250">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolorum expedita minima labore ea consectetur esse. Incidunt dolor aperiam saepe iure aut, blanditiis fugit vitae omnis molestiae inventore laudantium corporis pariatur eligendi sit totam! Non, beatae quod? Beatae voluptate rerum reprehenderit.</p>
-			</div>
-			<div class="-scale-x-100">
-				<img src="/mamiFoto.png" alt="broom" class="max-w-[20rem] max-h-[20rem] object-scale-down !aspect-square animate-aparecerLadoDerecho delay-100" />
-			</div>
-		</section>
-		<div class="w-screen flex gap-6 gap-x-10 flex-wrap items-center justify-center">
-			<CopyButton textoCopiar="310 4745978" width="w-52" animation="animate-aparecerLadoIzquierdo" client:load>
-				<span class="w-fit text-xl font-bold flex items-center gap-2 text-black/80">
-					<img src="/whatsapp.svg" alt="whatsapp icono" class="size-10 "/>
-					310 4745978
-				</span>
-			</CopyButton>
-			<CopyButton textoCopiar="a.osorio@misena.edu.co" width="w-64" animation="animate-aparecerLadoDerecho" client:load>
-				<span class="w-fit text-lg font-bold flex items-center text-black/80">
-					<img src="/gmail.svg" alt="gmail icono" class="size-10 "/>
-					a.osorio@misena.edu.co
-				</span>
-			</CopyButton>
-		</div>
+	<main>
+		pagina principal
 	</main>
-
 </Layout>
 
 <style>
