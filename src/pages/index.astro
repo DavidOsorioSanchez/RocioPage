@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Navbar from '../components/Navbar.astro';
+import Separador from '../components/Separador.astro';
 ---
 
 <Layout title="Comida a un click">
@@ -9,8 +10,15 @@ import Navbar from '../components/Navbar.astro';
 		AbouSelected={false}
 		contactoSelected={false}
 	/>
-	<main>
-		pagina principal
+	<main class="min-h-screen w-screen flex flex-col items-center justify-start p-4">
+		<Separador 
+			width="w-[90vw]"
+			text="Menu."
+			size="text-xl"
+			bold="font-bold"
+			italic="italic"
+			delay="150ms"
+		/>
 	</main>
 </Layout>
 

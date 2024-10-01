@@ -30,6 +30,8 @@ module.exports = {
 				'aparecerLadoDerecho': 'aparecerLadoDerecho 1.5s ease-in-out ',
 				'aparecerLadoIzquierdo': 'aparecerLadoIzquierdo 1.5s ease-in-out ',
 				'voltear': 'voltear 0.5s ease-in-out',
+				'expandir': 'expandir 1s ease-in-out',
+				'contraer': 'expandir reverse 1s ease-in-out',
 			},
 			keyframes: {
 				bajar: {
@@ -39,6 +41,10 @@ module.exports = {
 				aparecer: {
 					'0%': { opacity: '0' },
 					'100%': { opacity: '1' },
+				},
+				expandir: {
+					'0%': { opacity: '0', transform: 'scale(0)' },
+					'100%': { opacity: '1', transform: 'scale(1)' },
 				},
 				aparecerLadoDerecho: {
 					'0%': { opacity: '0', transform: 'translateX(150px)' },
