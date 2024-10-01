@@ -2,17 +2,18 @@
 interface Props {
     width: string;
     text: string;
-    size: "text-xl" | "text-lg" | "text-md";
+    size: "text-2xl" | "text-xl" | "text-lg" | "text-md";
+    delay: string;
+
     bold?: "font-bold" | "font-semibold" | "font-medium";
     italic?: "italic";
-    delay: string;
 }
 
 const { width, text, size, bold, italic, delay } = Astro.props;
 ---
 
-<div class={`relative flex flex-col items-center justify-center w-screen animate-bajada ${delay}`}>
+<div class={`relative flex flex-col items-center justify-center w-screen ${delay} animate-aparece my-4`}>
     <span class={`${width} min-w-0 bg-black/50 min-h-0.5 relative`}>  </span>
-    <p class={` absolute ${size} ${bold} ${italic} text-black/90 bg-white px-3`}>{text}</p>
+    <p class={` absolute ${size} ${bold} ${italic} text-black/90 bg-white px-3 h-fit`}>{text}</p>
 </div>
 

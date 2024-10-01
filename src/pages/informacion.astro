@@ -12,7 +12,7 @@ import CopyButton from '../components/react/CopyButton.tsx';
     />
 	<main class="flex flex-col min-h-screen w-screen items-center justify-center p-4 gap-4 border-b-2 border-black/10">
 		<section class="flex flex-wrap-reverse gap-4 items-center justify-center">
-			<div class="max-w-2xl flex flex-col gap-4 items-center">
+			<div class="max-w-2xl flex flex-col gap-4 items-center mx-6">
 				<p class="text-xl font-semibold animate-aparecerLadoIzquierdo delay-150">Hola, Mi nombre es <i class="text-dark-blue underline decoration-solid">Rocio Sánchez.</i></p>
 
 				<p class="animate-aparecerLadoDerecho delay-200">
@@ -28,7 +28,7 @@ import CopyButton from '../components/react/CopyButton.tsx';
 				<img src="/mamiFoto.png" alt="foto Rocio" class="max-w-[20rem] max-h-[20rem] object-scale-down !aspect-square animate-aparecerLadoDerecho delay-100" />
 			</div>
 		</section>
-		<div class="w-screen flex gap-6 gap-x-10 flex-wrap items-center justify-center">
+		<div class="w-screen flex flex-col gap-6 gap-x-10 items-center justify-center min-[560px]:flex-row">
 			<CopyButton textoCopiar="310 4745978" width="w-52" animation="animate-aparecerLadoIzquierdo" client:load>
 				<span class="w-fit text-xl font-bold flex items-center gap-2 text-black/80">
 					<img src="/whatsapp.svg" alt="whatsapp icono" class="size-10 "/>

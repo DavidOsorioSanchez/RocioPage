@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import Navbar from '../components/Navbar.astro';
 import Separador from '../components/Separador.astro';
+import ProductCard from '../components/ProductCard.astro';
 ---
 
 <Layout title="Comida a un click">
@@ -10,15 +11,48 @@ import Separador from '../components/Separador.astro';
 		AbouSelected={false}
 		contactoSelected={false}
 	/>
-	<main class="min-h-screen w-screen flex flex-col items-center justify-start p-4">
+	<main class="min-h-screen w-screen flex flex-col items-center justify-start p-6">
 		<Separador 
 			width="w-[90vw]"
 			text="Menu."
-			size="text-xl"
+			size="text-2xl"
 			bold="font-bold"
 			italic="italic"
-			delay="150ms"
+			delay="delay-150"
 		/>
+		<div class="grid grid-cols-1 gap-8 w-full tablet:grid-cols-2 laptop:grid-cols-3 ">
+			<ProductCard 
+				bgImage="curry.jpeg" 
+				title="Curry" 
+				price="€ 10"
+
+			/>
+			<ProductCard 
+				bgImage="pasta.jpeg" 
+				title="Boloñesa" 
+				price="€ 10"
+			/>
+			<ProductCard
+				bgImage="burritos.jpeg" 
+				title="Burritos" 
+				price="€ 10"
+			/>
+			<ProductCard 
+				bgImage="sopon.jpeg" 
+				title="Sopon Marinero" 
+				price="€ 10"
+			/>
+			<ProductCard 
+				bgImage="apple.jpeg" 
+				title="Apple Pie"
+				price="€ 20"
+			/>
+			<ProductCard
+				bgImage="yogurt.jpeg" 
+				title="Yogurt" 
+				price="€ 10"
+			/>
+		</div>
 	</main>
 </Layout>
 
