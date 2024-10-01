@@ -13,6 +13,14 @@ module.exports = {
 			'desktop': '1280px',
 		},
 		extend: {
+			backgroundImage: {
+				'curry': 'url(/recetas/curry.jpeg)',
+				'pasta': 'url(/recetas/pasta.jpeg)',
+				'burritos': 'url(/recetas/burritos.jpeg)',
+				'sopon': 'url(/recetas/sopon.jpeg)',
+				'apple': 'url(/recetas/apple.jpeg)',
+				'yogurt': 'url(/recetas/yogurt.jpeg)',
+			},
 			aspectRatio: {
 				'16/9': 'calc(9 / 16 * 100%)',
 				'4/3': 'calc(3 / 4 * 100%)',
