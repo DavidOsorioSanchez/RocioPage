@@ -2,7 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import Navbar from '../components/Navbar.astro';
 import Separador from '../components/Separador.astro';
-import ProductCard from '../components/ProductCard.astro';
+import ProductCard from '../components/react/ProductsCards.tsx';
 import FloatWhatsapp from '../components/FloatWhatsapp.astro';
 ---
 
@@ -20,39 +20,7 @@ import FloatWhatsapp from '../components/FloatWhatsapp.astro';
 			bold="font-bold"
 			italic="italic"
 		/>
-		<div class="grid grid-cols-1 gap-8 w-full tablet:grid-cols-2 laptop:grid-cols-3 ">
-			<ProductCard 
-				bgImage="bg-curry"
-				title="Curry" 
-				price="€ 10"
-
-			/>
-			<ProductCard 
-				bgImage="bg-pasta"
-				title="Boloñesa" 
-				price="€ 10"
-			/>
-			<ProductCard
-				bgImage="bg-burritos"
-				title="Burritos" 
-				price="€ 10"
-			/>
-			<ProductCard 
-				bgImage="bg-sopon"
-				title="Sopon Marinero" 
-				price="€ 10"
-			/>
-			<ProductCard 
-				bgImage="bg-apple"
-				title="Apple Pie"
-				price="€ 20"
-			/>
-			<ProductCard
-				bgImage="bg-yogurt"
-				title="Yogurt" 
-				price="€ 10"
-			/>
-		</div>
+		<ProductCard/>
 		
 	</main>
 	<FloatWhatsapp />
