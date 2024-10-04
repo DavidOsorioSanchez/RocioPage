@@ -1,28 +1,37 @@
+import { useState } from 'react';
 import { comidas } from '../../../comidas.ts';
+import Modal from './Modal.tsx'
 
 interface ParametroComidas {
+    id: number;
+    modalAbierto: boolean;
     bgImage: string;
     title: string;
     price: string;
-    modalActivado?: boolean;
-    descripcion?: string;
-    carousel?: boolean;
-    imagenes?: string[];
-    picante?: boolean;
-    categoria?: string[];
-    URL?: string;
+    descripcion: string;
+    carousel: boolean;
+    imagenes: string[];
+    picante: boolean;
+    categoria: string[];
+    URL: string;
 }
 
 export default function ProductsCards() {
-        
+    const [Comida, setComida] = useState<typeof comidas>(comidas);
+    
+    const toggleModal = (id: number) => {
+        setComida(comidas.map(comidas => 
+            comidas.id === id ? { ...comidas, modalAbierto: !comidas.modalAbierto } : comidas
+        ));
+        console.log(comidas)
+    };
+
     return (
         <div className="grid grid-cols-1 gap-8 w-full tablet:grid-cols-2 laptop:grid-cols-3 ">
-            {comidas.map((data: ParametroComidas) =>(
+            {Comida.map((data: ParametroComidas) =>(
                 <button
-                    key={data.title}
-                    onClick={() =>(
-                        console.log(data)
-                    )}
+                    key={data.id}
+                    onClick={() => toggleModal(data.id)}
                     className="relative rounded-lg w-full h-72 shadow-xl shadow-black/60 border-double border-2 border-black/30 transition-all duration-150 animate-expandir hover:scale-[1.02] active:brightness-75"
                 >
                     <img src={`/recetas/${data.bgImage}`} alt={`Una foto de${data.title}`} className="absolute top-0 left-0 w-full h-full aspect-4/3 object-cover rounded-lg" />
@@ -34,7 +43,27 @@ export default function ProductsCards() {
                             {data.price}
                         </p>
                     </footer>
+                    
                 </button>
+            ))}
+
+            {Comida.map((data: ParametroComidas) => (
+
+                <>
+                        {data.modalAbierto && (
+                            <Modal 
+                                key={data.id}
+                                title={data.title}
+                                price={data.price}
+                                descripcion={data.descripcion}
+                                carousel={data.carousel}
+                                imagenes={data.imagenes}
+                                picante={data.picante}
+                                categoria={data.categoria}
+                                URL={data.URL}
+                            />
+                            )}
+                    </>
             ))}
         </div>
     )
