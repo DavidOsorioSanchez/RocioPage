@@ -9,7 +9,6 @@ interface ParametroComidas {
     title: string;
     price: string;
     descripcion: string;
-    carousel: boolean;
     imagenes: string[];
     picante: boolean;
     categoria: string[];
@@ -23,7 +22,6 @@ export default function ProductsCards() {
         setComida(comidas.map(comidas => 
             comidas.id === id ? { ...comidas, modalAbierto: !comidas.modalAbierto } : comidas
         ));
-        console.log(comidas)
     };
 
     return (
@@ -53,10 +51,10 @@ export default function ProductsCards() {
                         {data.modalAbierto && (
                             <Modal 
                                 key={data.id}
+                                modalAbierto={data.modalAbierto}
                                 title={data.title}
                                 price={data.price}
                                 descripcion={data.descripcion}
-                                carousel={data.carousel}
                                 imagenes={data.imagenes}
                                 picante={data.picante}
                                 categoria={data.categoria}
