@@ -48,7 +48,7 @@ export default function Modal({
                     <img src="/back.svg" alt="Back" className="size-full" />
                 </button>
                 <img src={`/recetas/${foto}`} alt={`Una foto de ${title}`} className="w-full h-[50vh] min-h-[20rem] rounded-none aspect-16/9 object-cover border-b-2 border-dark-blue/70 min-[800px]:w-screen min-[800px]:min-h-[95vh] min-[800px]:rounded-l-lg  min-[800px]:max-h-screen min-[800px]:max-w-[40%] min-[800px]:aspect-9/16 min-[800px]:border-b-0 min-[800px]:border-r-2 overflow-y-auto" />
-                <section className='flex flex-col justify-center items-center w-full h-full gap-y-6 gap-x-3 p-4'>
+                <section className='flex flex-col justify-center items-center w-full h-full gap-y-6 gap-x-3 p-4 overflow-y-auto'>
                     <div className='w-full p-4 bg-dark-blue/15 rounded-xl flex flex-col items-center max-w-screen-tablet'>                        
                         <header className="flex flex-wrap gap-4 items-center justify-center py-2 px-4">
                             <div className="flex gap-2 text-center">
