@@ -47,7 +47,7 @@ export default function Modal({
                 <button onClick={onOpen} className="size-12 p-1 absolute bg-white/75 top-4 left-4 border-2 border-black/50 rounded-full hover:blur-[1px] hover:brightness-125 transition-all duration-150">
                     <img src="/back.svg" alt="Back" className="size-full" />
                 </button>
-                <img src={`/recetas/${foto}`} alt={`Una foto de ${title}`} className="w-full max-h-[30rem] rounded-none aspect-16/9 object-cover border-b-2 border-dark-blue/70 min-[800px]:w-screen min-[800px]:min-h-[95vh] min-[800px]:rounded-l-lg  min-[800px]:max-h-screen min-[800px]:max-w-[40%] min-[800px]:aspect-9/16 min-[800px]:border-b-0 min-[800px]:border-r-2 overflow-y-auto" />
+                <img src={`/recetas/${foto}`} alt={`Una foto de ${title}`} className="w-full h-[30rem] rounded-none aspect-16/9 object-cover border-b-2 border-dark-blue/70 min-[800px]:w-screen min-[800px]:min-h-[95vh] min-[800px]:rounded-l-lg  min-[800px]:max-h-screen min-[800px]:max-w-[40%] min-[800px]:aspect-9/16 min-[800px]:border-b-0 min-[800px]:border-r-2 overflow-y-auto" />
                 <section className='flex flex-col justify-center items-center w-full h-full gap-y-6 gap-x-3 p-4'>
                     <div className='w-full p-4 bg-dark-blue/15 rounded-xl flex flex-col items-center max-w-screen-tablet'>                        
                         <header className="flex flex-wrap gap-4 items-center justify-center py-2 px-4">
@@ -80,12 +80,12 @@ export default function Modal({
                         </p>
                     </div>
                     <div className='w-full px-1 py-4 bg-dark-blue/15 rounded-xl flex flex-nowrap flex-col text-nowrap items-center gap-x-1 gap-y-2 justify-center max-w-screen-tablet phone:px-8 phone:gap-x-8 phone:flex-row'>
-                        <button disabled className='flex items-center gap-1 min-w-fit bg-[#257180] text-white rounded-2xl h-fit w-fit px-6 py-4 font-semibold brightness-50'>
+                        <button disabled className='flex items-center justify-center gap-1 min-w-fit bg-[#257180] text-white rounded-2xl h-fit w-fit px-6 py-4 font-semibold brightness-50'>
                             <img src="/money.svg" alt="Comprar" className="size-6" />
                             <p>Comprar</p>
                         </button>
                         <a href={URL} target="_blank" rel="contactar">
-                            <button className='flex items-center gap-1 min-w-fit bg-[#5BD066] text-white rounded-2xl h-fit w-fit px-6 py-4 font-semibold hover:-skew-x-12 hover:brightness-110 transition-all duration-150'>
+                            <button className='flex items-center justify-center gap-1 min-w-fit bg-[#5BD066] text-white rounded-2xl h-fit w-fit px-6 py-4 font-semibold hover:-skew-x-12 hover:brightness-110 transition-all duration-150'>
                                 <img src="whatsapp-outline.svg" alt="Contactar" className="size-6" />
                                 <p>Contactar</p>
                             </button>
