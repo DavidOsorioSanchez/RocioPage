@@ -80,7 +80,7 @@ export default function Modal({
                         </p>
                     </div>
                     <div className='w-full px-1 py-4 bg-dark-blue/15 rounded-xl flex flex-nowrap flex-col text-nowrap items-center gap-x-1 gap-y-2 justify-center max-w-screen-tablet phone:px-8 phone:gap-x-8 phone:flex-row'>
-                        <button disabled className='flex items-center justify-center gap-1 min-w-fit bg-[#257180] text-white rounded-2xl h-fit w-fit px-6 py-4 font-semibold cursor-wait brightness-50'>
+                        <button disabled className='flex items-center justify-center gap-1 min-w-fit bg-[#257180] text-white rounded-2xl h-fit w-fit px-6 py-4 font-semibold cursor-not-allowed brightness-50'>
                             <img src="/money.svg" alt="Comprar" className="size-6" />
                             <p>Comprar</p>
                         </button>
