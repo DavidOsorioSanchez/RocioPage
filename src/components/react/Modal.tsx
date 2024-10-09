@@ -47,7 +47,7 @@ export default function Modal({
                 <button onClick={onOpen} className="size-12 p-1 fixed bg-white/75 top-4 left-4 border-2 border-black/50 rounded-full hover:blur-[1px] hover:brightness-125 transition-all duration-150">
                     <img src="/back.svg" alt="Back" className="size-full" />
                 </button>
-                <img src={`/recetas/${foto}`} alt={`Una foto de ${title}`} className="w-full h-[35vh] rounded-none aspect-16/9 object-cover border-b-2 border-dark-blue/70 min-[800px]:w-screen min-[800px]:min-h-[95vh] min-[800px]:rounded-l-lg  min-[800px]:max-h-screen min-[800px]:max-w-[40%] min-[800px]:aspect-9/16 min-[800px]:border-b-0 min-[800px]:border-r-2 overflow-y-auto" />
+                <img src={`/recetas/${foto}`} alt={`Una foto de ${title}`} className="w-full h-[50vh] rounded-none aspect-16/9 object-cover border-b-2 border-dark-blue/70 min-[800px]:w-screen min-[800px]:min-h-[95vh] min-[800px]:rounded-l-lg  min-[800px]:max-h-screen min-[800px]:max-w-[40%] min-[800px]:aspect-9/16 min-[800px]:border-b-0 min-[800px]:border-r-2 overflow-y-auto" />
                 <section className='flex flex-col justify-center items-center w-full h-full gap-y-6 gap-x-3 p-4'>
                     <div className='w-full p-4 bg-dark-blue/15 rounded-xl flex flex-col items-center max-w-screen-tablet'>                        
                         <header className="flex flex-wrap gap-4 items-center justify-center py-2 px-4">
