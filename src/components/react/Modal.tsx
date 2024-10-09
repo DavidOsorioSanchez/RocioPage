@@ -48,48 +48,50 @@ export default function Modal({
                     <img src="/back.svg" alt="Back" className="size-full" />
                 </button>
                 <img src={`/recetas/${foto}`} alt={`Una foto de ${title}`} className="block w-full h-[40vh] rounded-none aspect-16/9 object-cover border-b-2 border-dark-blue/70 min-[800px]:w-screen min-[800px]:min-h-[95vh] min-[800px]:rounded-l-lg  min-[800px]:max-h-screen min-[800px]:max-w-[40%] min-[800px]:aspect-9/16 min-[800px]:border-b-0 min-[800px]:border-r-2 overflow-y-auto" />
-                <section className='absolute top-[40vh] flex flex-col justify-center items-center w-full h-auto gap-y-6 gap-x-3 p-4 overflow-y-scroll'>
-                    <div className='w-full p-4 bg-dark-blue/15 rounded-xl flex flex-col items-center max-w-screen-tablet'>                        
-                        <header className="flex flex-wrap gap-4 items-center justify-center py-2 px-4">
-                            <div className="flex gap-2 text-center items-center">
-                                <span className="flex gap-2">
-                                    <h1 className="text-2xl font-bold text-center text-nowrap">
-                                        {title}
-                                    </h1>
-                                    <p className="text-center text-xl font-bold text-nowrap">
-                                        {price}
-                                    </p>
-                                </span>
-                                {
-                                    picante && (
-                                        <img src="/spicy.svg" alt="Picante" className="w-8 h-8" />
-                                    )
-                                }
-                            </div>
-                            <span className="flex justify-center flex-wrap gap-2">
-                                {categoria.map((categoria: string) => (
-                                    <span className="text font-semibold text-white bg-dark-blue/70  py-2 px-4 rounded-full">
-                                        {categoria}
+                <section className='absolute top-[40vh] flex justify-center items-center w-full h-auto  p-4  min-[800px]:relative min-[800px]:top-0'>
+                    <div className='flex flex-col flex-shrink w-screen min-h-fit gap-y-6 gap-x-3 !overflow-y-scroll'>
+                        <div className='w-full p-4 bg-dark-blue/15 rounded-xl flex flex-col items-center max-w-screen-tablet'>
+                            <header className="flex flex-wrap gap-4 items-center justify-center py-2 px-4">
+                                <div className="flex gap-2 text-center items-center">
+                                    <span className="flex gap-2">
+                                        <h1 className="text-2xl font-bold text-center text-nowrap">
+                                            {title}
+                                        </h1>
+                                        <p className="text-center text-xl font-bold text-nowrap">
+                                            {price}
+                                        </p>
                                     </span>
-                                ))}
-                            </span>
-                        </header>
+                                    {
+                                        picante && (
+                                            <img src="/spicy.svg" alt="Picante" className="w-8 h-8" />
+                                        )
+                                    }
+                                </div>
+                                <span className="flex justify-center flex-wrap gap-2">
+                                    {categoria.map((categoria: string) => (
+                                        <span className="text font-semibold text-white bg-dark-blue/70  py-2 px-4 rounded-full">
+                                            {categoria}
+                                        </span>
+                                    ))}
+                                </span>
+                            </header>
 
-                        <p className="text-center text-md font-medium">
-                            {descripcion}
-                        </p>
-                    </div>
-                    <div className='w-full px-1 py-4 bg-dark-blue/15 rounded-xl flex flex-nowrap flex-col text-nowrap items-center gap-x-1 gap-y-2 justify-center max-w-screen-tablet phone:px-8 phone:gap-x-8 phone:flex-row'>
-                        <button disabled className='flex items-center justify-center gap-1 min-w-fit bg-[#257180] text-white rounded-2xl h-fit w-fit px-6 py-4 font-semibold cursor-not-allowed brightness-50'>
-                            <img src="/money.svg" alt="Comprar" className="size-6" />
-                            <p>Comprar</p>
-                        </button>
-                        <a href={URL} target="_blank" rel="contactar">
-                            <button className='flex items-center justify-center gap-1 min-w-fit bg-[#5BD066] text-white rounded-2xl h-fit w-fit px-6 py-4 font-semibold hover:-skew-x-12 cursor-help hover:brightness-110 transition-all duration-150'>
-                                <img src="whatsapp-outline.svg" alt="Contactar" className="size-6" />
-                                <p>Contactar</p>
+                            <p className="text-center text-md font-medium">
+                                {descripcion}
+                            </p>
+                        </div>
+                        <div className='w-full px-1 py-4 bg-dark-blue/15 rounded-xl flex flex-nowrap flex-col text-nowrap items-center gap-x-1 gap-y-2 justify-center max-w-screen-tablet phone:px-8 phone:gap-x-8 phone:flex-row'>
+                            <button disabled className='flex items-center justify-center gap-1 min-w-fit bg-[#257180] text-white rounded-2xl h-fit w-fit px-6 py-4 font-semibold cursor-not-allowed brightness-50'>
+                                <img src="/money.svg" alt="Comprar" className="size-6" />
+                                <p>Comprar</p>
                             </button>
-                        </a>
+                            <a href={URL} target="_blank" rel="contactar">
+                                <button className='flex items-center justify-center gap-1 min-w-fit bg-[#5BD066] text-white rounded-2xl h-fit w-fit px-6 py-4 font-semibold hover:-skew-x-12 cursor-help hover:brightness-110 transition-all duration-150'>
+                                    <img src="whatsapp-outline.svg" alt="Contactar" className="size-6" />
+                                    <p>Contactar</p>
+                                </button>
+                            </a>
+                        </div>
                     </div>
                 </section>
             </article>
