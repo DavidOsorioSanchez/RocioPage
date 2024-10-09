@@ -13,7 +13,7 @@ export default function Menu({PrinSelected, AbouSelected}: Props) {
   };
 
   return (
-    <span className="flex flex-col w-fit justify-between items-end min-h-[200px] h-auto absolute top-3 right-3 min-[725px]:hidden">
+    <span className="flex flex-col w-fit justify-between items-end min-h-[156px] h-auto absolute top-3 right-3 min-[725px]:hidden">
       <button className="cursor-hand z-50" onClick={handleClick}>
         <img src="/menu.svg" alt="menu" className={`size-12 rounded-full ${showMenu ? "bg-light-blue" : "bg-black/10"} p-2 block active:bg-blue`} />
       </button>
