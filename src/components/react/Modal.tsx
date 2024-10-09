@@ -44,7 +44,7 @@ export default function Modal({
         <section className='w-screen h-screen fixed z-40'>
             <button onClick={onOpen} className="w-screen h-screen bg-black/50 fixed top-0 left-0 z-40 animate-aparece cursor-default max-[800px]:hidden"></button>
             <article className="fixed flex flex-col top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-screen h-screen rounded-lg bg-white z-50 animate-aparece min-[800px]:flex-row min-[800px]:max-w-[80vw] min-[800px]:h-[95vh]">
-                <button onClick={onOpen} className="size-12 p-1 absolute bg-white/75 top-2 left-2 border-2 border-black/50 rounded-full hover:blur-[1px] hover:brightness-125 transition-all duration-150">
+                <button onClick={onOpen} className="size-12 p-1 absolute bg-white/75 top-4 left-4 border-2 border-black/50 rounded-full hover:blur-[1px] hover:brightness-125 transition-all duration-150">
                     <img src="/back.svg" alt="Back" className="size-full" />
                 </button>
                 <img src={`/recetas/${foto}`} alt={`Una foto de ${title}`} className="w-full max-h-[30rem] rounded-none aspect-16/9 object-cover border-b-2 border-dark-blue/70 min-[800px]:w-screen min-[800px]:min-h-[95vh] min-[800px]:rounded-l-lg  min-[800px]:max-h-screen min-[800px]:max-w-[40%] min-[800px]:aspect-9/16 min-[800px]:border-b-0 min-[800px]:border-r-2 overflow-y-auto" />
