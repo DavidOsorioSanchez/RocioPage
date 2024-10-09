@@ -20,7 +20,10 @@ import FloatWhatsapp from '../components/FloatWhatsapp.astro';
 			bold="font-bold"
 			italic="italic"
 		/>
-		<ProductCard client:load/>
+		<div class="grid grid-cols-1 gap-8 w-full tablet:grid-cols-2 laptop:grid-cols-3 ">
+			<ProductCard client:load/>
+		</div>
+		
 		
 	</main>
 	<FloatWhatsapp />

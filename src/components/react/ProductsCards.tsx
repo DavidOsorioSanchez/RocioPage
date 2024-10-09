@@ -4,7 +4,7 @@ import Modal from './Modal.tsx'
 
 interface ParametroComidas {
     id: number;
-    modalAbierto: boolean;
+    modalAbierto: any;
     bgImage: string;
     title: string;
     price: string;
@@ -23,16 +23,17 @@ export default function ProductsCards() {
             comidas.id === id ? { ...comidas, modalAbierto: !comidas.modalAbierto } : comidas
         ));
     };
+    
 
     return (
-        <div className="grid grid-cols-1 gap-8 w-full tablet:grid-cols-2 laptop:grid-cols-3 ">
+        <>
             {Comida.map((data: ParametroComidas) =>(
                 <button
                     key={data.id}
                     onClick={() => toggleModal(data.id)}
                     className="relative rounded-lg w-full h-72 shadow-xl shadow-black/60 border-double border-2 border-black/30 transition-all duration-150 animate-expandir hover:scale-[1.02] active:brightness-75"
                 >
-                    <img src={`/recetas/${data.bgImage}`} alt={`Una foto de${data.title}`} className="absolute top-0 left-0 w-full h-full aspect-4/3 object-cover rounded-lg" />
+                    <img src={`/recetas/${data.bgImage}`} alt={`Una foto de ${data.title}`} className="absolute top-0 left-0 w-full h-full aspect-4/3 object-cover rounded-lg" />
                     <footer className="absolute bottom-0 w-full h-fit flex items-center justify-center gap-2 bg-black/80 p-2 text-white rounded-b-lg z-20">
                         <p className="text-xl font-semibold capitalize">
                             {data.title}
@@ -46,10 +47,10 @@ export default function ProductsCards() {
             ))}
 
             {Comida.map((data: ParametroComidas) => (
-
                 <>
                         {data.modalAbierto && (
                             <Modal 
+                                onOpen={toggleModal}
                                 key={data.id}
                                 modalAbierto={data.modalAbierto}
                                 title={data.title}
@@ -63,6 +64,6 @@ export default function ProductsCards() {
                             )}
                     </>
             ))}
-        </div>
+        </>
     )
 }
