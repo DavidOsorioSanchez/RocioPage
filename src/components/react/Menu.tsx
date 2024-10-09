@@ -3,10 +3,9 @@ import { useState } from "react";
 interface Props {
   PrinSelected: boolean;
   AbouSelected: boolean;
-  ContSelected: boolean;
 }
 
-export default function Menu({PrinSelected, AbouSelected, ContSelected}: Props) {
+export default function Menu({PrinSelected, AbouSelected}: Props) {
   const [showMenu, setShowMenu] = useState(false);
 
   const handleClick = () => {
@@ -25,9 +24,6 @@ export default function Menu({PrinSelected, AbouSelected, ContSelected}: Props) 
           </li>
           <li className={`py-2 px-3 w-full ${AbouSelected ? "bg-light-blue" : ""} ${AbouSelected ? "hover:bg-blue" : "hover:bg-light-blue"}`}>
             <a href="/informacion" className="block">🧾 Informacion</a>
-          </li>
-          <li className={`py-2 px-3 w-full rounded-b-xl ${ContSelected ? "bg-light-blue" : ""} ${ContSelected ? "hover:bg-blue" : "hover:bg-light-blue"}`}>
-            <a href="/contactanos" className="block">📲 Contactanos</a>
           </li>
         </ul>
       )}
