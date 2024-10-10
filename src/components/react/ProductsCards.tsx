@@ -26,7 +26,7 @@ export default function ProductsCards() {
     
 
     return (
-        <>
+        <div className="grid grid-cols-1 gap-8 w-full tablet:grid-cols-2 laptop:grid-cols-3 overflow-y-hidden">
             {Comida.map((data: ParametroComidas) =>(
                 <button
                     key={data.id}
@@ -62,6 +62,6 @@ export default function ProductsCards() {
                             )}
                     </>
             ))}
-        </>
+        </div>
     )
 }
