@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&display=swap');
+
+::-webkit-scrollbar {
+  width: 0rem;
+}
+
+:root {
+  --white: #FAF7F0;
+  --black: #0F0E0D;
+  --dark-blue: #98A8F8;
+  --blue: #BCCEF8;
+  --light-blue: #CDFCF6;
+
+  --font-Caveat: 'Caveat', cursive;
+}
+
+
+html {
+  font-family: 'Montserrat', sans-serif;
+  background-color: var(--white);
+  color: var(--black);
+  scroll-behavior: smooth;
+  overflow-y: none;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+#Caveat {
+  font-family: var(--font-Caveat);
+}
