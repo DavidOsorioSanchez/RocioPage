@@ -52,16 +52,16 @@ export default function Modal({
     return (
         <section className='w-screen h-screen fixed z-40'>
             <button onClick={onOpen} className="w-screen h-screen bg-black/50 fixed top-0 left-0 z-40 animate-aparece cursor-default max-[800px]:hidden"></button>
-            <article className="fixed flex flex-col top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-screen h-screen rounded-lg flex-1 overflow-y-scroll bg-white z-50 animate-aparece min-[800px]:flex-row min-[800px]:max-w-[80vw] min-[800px]:h-[95vh] min-[800px]:overflow-y-hidden">
+            <article className="fixed flex flex-col top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-screen h-screen rounded-none flex-1 overflow-y-scroll bg-white z-50 animate-aparece min-[800px]:flex-row min-[800px]:max-w-[80vw] min-[800px]:h-[95vh] min-[800px]:overflow-y-hidden min-[800px]:rounded-md">
                 <button onClick={onOpen} className="size-12 p-1 fixed bg-white/75 top-4 left-4 border-2 border-black/50 rounded-full hover:blur-[1px] hover:brightness-125 transition-all duration-150">
                     <img src="/back.svg" alt="Back" className="size-full" />
                 </button>
-                <img src={`/recetas/${foto}`} alt={`Una foto de ${title}`} className="!static w-full h-[40vh] rounded-none aspect-16/9 object-cover border-b-2 border-dark-blue/70 min-[800px]:w-screen min-[800px]:min-h-[95vh] min-[800px]:rounded-l-lg  min-[800px]:max-h-screen min-[800px]:max-w-[40%] min-[800px]:aspect-9/16 min-[800px]:border-b-0 min-[800px]:border-r-2 " />
+                <img src={`/recetas/${foto}`} alt={`Una foto de ${title}`} className="!static w-full h-[40vh] rounded-none aspect-16/9 object-cover border-b-2 border-dark-blue/70 min-[800px]:w-screen min-[800px]:min-h-[95vh] min-[800px]:rounded-l-md  min-[800px]:max-h-screen min-[800px]:max-w-[40%] min-[800px]:aspect-9/16 min-[800px]:border-b-0 min-[800px]:border-r-2 " />
                 <section className='absolute top-[40vh] flex justify-center items-center w-full h-auto p-4  min-[800px]:relative min-[800px]:top-0 min-[800px]:w-full min-[800px]:overflow-y-auto'>
-                    <div className='flex flex-col justify-start items-center flex-shrink w-screen  gap-y-0 gap-x-0  min-[800px]:w-full min-[800px]:h-auto min-[800px]:justify-center phone:gap-y-6 phone:gap-x-3'>
+                    <div className='flex flex-col justify-start items-center flex-shrink w-screen py-1  gap-y-4 gap-x-0  min-[800px]:w-full min-[800px]:h-auto min-[800px]:justify-center phone:gap-y-6 phone:gap-x-3'>
                         <div className='w-full p-4 bg-dark-blue/15 rounded-xl flex flex-col items-center max-w-screen-tablet '>
                             <header className="flex flex-wrap gap-4 items-center justify-center py-2 px-4">
-                                <div className="flex gap-2 text-center items-center">
+                                <div className="flex gap-2 text-center items-center flex-nowrap">
                                     <span className="flex gap-2">
                                         <h1 className="text-2xl font-bold text-center text-nowrap">
                                             {title}
