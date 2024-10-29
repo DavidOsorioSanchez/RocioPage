@@ -43,7 +43,7 @@ export default function Paygateway() {
                 
             </div>
             <ReCAPTCHA
-                sitekey={import.meta.env.VITE_KEY_RECAPTCH_PUBLIC}
+                sitekey="6Ld86G8qAAAAACyGs2xeBuf_i1J3NAEhyzto_nS0"
                 onChange={onChange}
             />
             <button type="submit" onClick={handleSubmit} className="min-w-40 w-fit h-fit p-3 bg-dark-blue/85 text-white font-semibold text-lg rounded-xl hover:bg-dark-blue/80 hover:text-white/80 transition-all duration-200 active:bg-dark-blue">
