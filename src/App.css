@@ -21,7 +21,7 @@ html {
   background-color: var(--white);
   color: var(--black);
   scroll-behavior: smooth;
-  overflow-y: none;
+  overflow-y: auto;
 }
 
 input[type="number"]::-webkit-inner-spin-button,

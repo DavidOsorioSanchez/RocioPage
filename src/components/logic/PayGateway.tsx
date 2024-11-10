@@ -64,7 +64,7 @@ export default function Paygateway() {
                         <div className='w-auto min-w-48 relative'>
                             <p className={`absolute ${Address ? "-top-6 left-3 scale-75" : "top-[0.40rem] left-6"} pointer-events-none text-lg font-medium text-black/95 transition-all duration-200`}>Direccion</p>
                             <p className={`absolute -top-4 right-2 text-xs text-[#ff0000] ${Address ? "opacity-0" : "opacity-100"} transition-all duration-200`}>Solo Medellin - Colombia</p>
-                            <input type="text" value={Address} onChange={handleDireccion} className={`relative outline-none uppercase w-auto h-fit p-2 border-b-2 ${Address ? "border-dark-blue/70 bg-white/25" : "border-black/70 bg-dark-blue/5"} `} required />
+                            <input type="text" minLength={7} value={Address} onChange={handleDireccion} className={`relative outline-none uppercase w-auto h-fit p-2 border-b-2 ${Address ? "border-dark-blue/70 bg-white/25" : "border-black/70 bg-dark-blue/5"} `} required />
                         </div>
                         <div className={` w-48 flex border-b-2 flex-nowrap ${phone ? "border-dark-blue/70" : "border-black/70"} transition-all duration-200`}>
                             <span className={`p-2 flex items-center flex-nowrap gap-1 bg-white/60`}>
