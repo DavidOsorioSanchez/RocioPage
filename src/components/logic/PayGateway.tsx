@@ -10,17 +10,21 @@ export default function Paygateway() {
     const [phone, setPhone] = useState("");
     const [howMuch, setHowMuch] = useState("");
     const [Address, setAddress] = useState("");
+    const regexNum = /^[0-9-]+$/;
+    const regexAddress = /^[a-zA-Z0-9# -]+$/;
 
     function handleEmail(e: any) {
         setEmail(e.target.value)
     }
 
-    function handlePhone(e: any) {
-        if (e.target.value.length === 3) {
-            const value = e.target.value + "-";
-            setPhone(value);
-        } else {
-            setPhone(e.target.value);
+    function handlePhone(e: any) {   
+        if (regexNum.test(e.target.value)) {
+            if (e.target.value.length === 3) {
+                const value = e.target.value + "-";
+                setPhone(value);
+            } else {
+                setPhone(e.target.value);
+            }
         }
     }
 
@@ -33,7 +37,9 @@ export default function Paygateway() {
     }
 
     function handleDireccion(e: any) {
-        setAddress(e.target.value)
+        if (regexAddress.test(e.target.value)) {
+            setAddress(e.target.value);
+        }
     }
 
 
@@ -58,16 +64,16 @@ export default function Paygateway() {
                         <div className='w-auto min-w-48 relative'>
                             <p className={`absolute ${Address ? "-top-6 left-3 scale-75" : "top-[0.40rem] left-6"} pointer-events-none text-lg font-medium text-black/95 transition-all duration-200`}>Direccion</p>
                             <p className={`absolute -top-4 right-2 text-xs text-[#ff0000] ${Address ? "opacity-0" : "opacity-100"} transition-all duration-200`}>Solo Medellin - Colombia</p>
-                            <input type="text" value={Address} onChange={handleDireccion} pattern="^[a-zA-Z0-9# -]+$" className={`relative outline-none uppercase w-auto h-fit p-2 border-b-2 ${Address ? "border-dark-blue/70 bg-white/25" : "border-black/70 bg-dark-blue/5"} `} required />
+                            <input type="text" value={Address} onChange={handleDireccion} className={`relative outline-none uppercase w-auto h-fit p-2 border-b-2 ${Address ? "border-dark-blue/70 bg-white/25" : "border-black/70 bg-dark-blue/5"} `} required />
                         </div>
-                        <div className={`w-auto min-w-48 flex border-b-2 flex-nowrap ${phone ? "border-dark-blue/70" : "border-black/70"} transition-all duration-200`}>
+                        <div className={` w-48 flex border-b-2 flex-nowrap ${phone ? "border-dark-blue/70" : "border-black/70"} transition-all duration-200`}>
                             <span className={`p-2 flex items-center flex-nowrap gap-1 bg-white/60`}>
                                 <svg width="20px" height="20px" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" className="iconify iconify--emojione" preserveAspectRatio="xMidYMid meet" fill="#000000"><g id="SVGRepo_bgCarrier" strokeWidth="0"></g><g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g><g id="SVGRepo_iconCarrier"><path d="M62 32H2c0 5.5 1.5 10.6 4 15h52c2.6-4.4 4-9.5 4-15" fill="#2a5f9e"></path><path d="M32 2C15.5 2 2 15.4 2 32h60C62 15.4 48.6 2 32 2z" fill="#ffe62e"></path><path d="M32 62c11.1 0 20.8-6 26-15H6c5.3 9 14.9 15 26 15" fill="#ed4c5c"></path></g></svg>
                                 <p>+57</p>
                             </span>
                             <span className="relative">
                                 <p className={`absolute text-lg text-black/95 top-1.5 left-2.5 ${phone ? "opacity-0" : "opacity-100"}`}>000-0000000</p>
-                                <input type="text" minLength={11} maxLength={11} onChange={handlePhone} value={phone} pattern="^[0-9-]+$" className={`relative outline-none w-auto h-fit p-2 ${phone ? " bg-white/25" : " bg-dark-blue/5"} transition-all duration-200`} required />
+                                <input type="text" minLength={11} maxLength={11} onChange={handlePhone} value={phone} className={`relative outline-none !w-full h-fit p-2 ${phone ? " bg-white/25" : " bg-dark-blue/5"} transition-all duration-200`} required />
                             </span>
                         </div>
                     </div>
