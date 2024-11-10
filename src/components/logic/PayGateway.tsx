@@ -1,18 +1,27 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import ReCAPTCHA from "react-google-recaptcha";
-import PaypalPay from "./PaypalPay";
+
 
 export default function Paygateway() {
     const [verified, setVerified] = useState(false);
     const [payMode, setPayMode] = useState(false);
-    const [email, setEmail] = useState(""); 
+    const [email, setEmail] = useState("");
+    const [phone, setPhone] = useState("");
     const [howMuch, setHowMuch] = useState("");
-    // const [GeoInfo, setGeoInfo] = useState("");
-    const [IpAddres, setIpAddres] = useState("");
+    const [Address, setAddress] = useState("");
 
     function handleEmail(e: any) {
         setEmail(e.target.value)
+    }
+
+    function handlePhone(e: any) {
+        if (e.target.value.length === 3) {
+            const value = e.target.value + "-";
+            setPhone(value);
+        } else {
+            setPhone(e.target.value);
+        }
     }
 
     function handleCaptchaChange() {
@@ -24,30 +33,15 @@ export default function Paygateway() {
     }
 
     function handleDireccion(e: any) {
-        setIpAddres(e.target.value)
+        setAddress(e.target.value)
     }
 
 
     async function handleSubmit(e: any) {
         e.preventDefault();
-        setPayMode(false);
+        setPayMode(!payMode);
     }
 
-    useEffect(() => {
-
-        getVisitorIP();
-    }, []);
-
-    async function getVisitorIP() {
-        try {
-            const response = await fetch("https://api.ipify.org");
-            const data = await response.json();
-            setIpAddres(data.ip);
-        } catch (error) {
-            console.log(error);
-        }
-
-    }
     return (
         <>
             {!payMode ? (
@@ -57,20 +51,31 @@ export default function Paygateway() {
                         <input type="number" onChange={handleHowMuch} minLength={1} min={1} maxLength={2} max={10} className="w-fit min-w-36 h-fit min-h-10 p-2 flex justify-center items-center bg-dark-blue/50 rounded-xl text-center text-lg font-semibold text-white border-none placeholder:text-white/80 placeholder:text-sm placeholder:text-nowrap focus:outline-none" placeholder="cuantas ordenes?" required />
                     </span>
                     <div className="w-full flex justify-center items-center gap-6 flex-wrap">
-                        <span className='w-auto min-w-48 relative'>
+                        <div className='w-auto min-w-48 relative'>
                             <p className={`absolute ${email ? "-top-6 left-3 scale-75" : "top-[0.40rem] left-6"} pointer-events-none text-lg font-medium text-black/95 transition-all duration-200`}>Email</p>
-                            <input type="text" onChange={handleEmail} className={`relative outline-none w-auto h-fit p-2 border-b-2 ${email ? "border-dark-blue/70 bg-white/25" : "border-black/70 bg-dark-blue/5"} `} required />
-                        </span>
-                        <span className='w-auto min-w-48 relative'>
-                            <p className={`absolute ${IpAddres ? "-top-6 left-3 scale-75" : "top-[0.40rem] left-6"} pointer-events-none text-lg font-medium text-black/95 transition-all duration-200`}>Direccion</p>
-                            <input type="text" value={IpAddres} onChange={handleDireccion} className={`relative outline-none w-auto h-fit p-2 border-b-2 ${IpAddres ? "border-dark-blue/70 bg-white/25" : "border-black/70 bg-dark-blue/5"} `} required />
-                        </span>
+                            <input type="email" onChange={handleEmail} className={`relative outline-none w-auto h-fit p-2 border-b-2 ${email ? "border-dark-blue/70 bg-white/25" : "border-black/70 bg-dark-blue/5"} `} required />
+                        </div>
+                        <div className='w-auto min-w-48 relative'>
+                            <p className={`absolute ${Address ? "-top-6 left-3 scale-75" : "top-[0.40rem] left-6"} pointer-events-none text-lg font-medium text-black/95 transition-all duration-200`}>Direccion</p>
+                            <p className={`absolute -top-4 right-2 text-xs text-[#ff0000] ${Address ? "opacity-0" : "opacity-100"} transition-all duration-200`}>Solo Medellin - Colombia</p>
+                            <input type="text" value={Address} onChange={handleDireccion} pattern="^[a-zA-Z0-9# -]+$" className={`relative outline-none uppercase w-auto h-fit p-2 border-b-2 ${Address ? "border-dark-blue/70 bg-white/25" : "border-black/70 bg-dark-blue/5"} `} required />
+                        </div>
+                        <div className={`w-auto min-w-48 flex border-b-2 flex-nowrap ${phone ? "border-dark-blue/70" : "border-black/70"} transition-all duration-200`}>
+                            <span className={`p-2 flex items-center flex-nowrap gap-1 bg-white/60`}>
+                                <svg width="20px" height="20px" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" className="iconify iconify--emojione" preserveAspectRatio="xMidYMid meet" fill="#000000"><g id="SVGRepo_bgCarrier" strokeWidth="0"></g><g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g><g id="SVGRepo_iconCarrier"><path d="M62 32H2c0 5.5 1.5 10.6 4 15h52c2.6-4.4 4-9.5 4-15" fill="#2a5f9e"></path><path d="M32 2C15.5 2 2 15.4 2 32h60C62 15.4 48.6 2 32 2z" fill="#ffe62e"></path><path d="M32 62c11.1 0 20.8-6 26-15H6c5.3 9 14.9 15 26 15" fill="#ed4c5c"></path></g></svg>
+                                <p>+57</p>
+                            </span>
+                            <span className="relative">
+                                <p className={`absolute text-lg text-black/95 top-1.5 left-2.5 ${phone ? "opacity-0" : "opacity-100"}`}>000-0000000</p>
+                                <input type="text" minLength={11} maxLength={11} onChange={handlePhone} value={phone} pattern="^[0-9-]+$" className={`relative outline-none w-auto h-fit p-2 ${phone ? " bg-white/25" : " bg-dark-blue/5"} transition-all duration-200`} required />
+                            </span>
+                        </div>
                     </div>
                     <ReCAPTCHA
                         sitekey="6Ld86G8qAAAAACyGs2xeBuf_i1J3NAEhyzto_nS0"
                         onChange={handleCaptchaChange}
                     />
-                    {email && IpAddres && verified && howMuch ? (
+                    {email && Address && verified && phone && howMuch ? (
                         <button type="submit" className="min-w-40 w-fit h-fit p-3 bg-dark-blue/85 text-white font-semibold text-lg rounded-xl hover:bg-dark-blue/80 hover:text-white/80 transition-all duration-200 active:bg-dark-blue">
                             Enviar
                         </button>
@@ -78,14 +83,10 @@ export default function Paygateway() {
                         <></>
                     )}
                 </form>
-            ) : email && IpAddres && payMode && verified ? (
-                <form className='w-full p-4 bg-dark-blue/15 rounded-xl flex flex-col items-center gap-y-7 justify-center max-w-screen-tablet animate-aparece'>
-                    <PaypalPay />
-                </form>
             ) : (
-                <>
-                    none
-                </>
+                <form className='w-full p-4 bg-dark-blue/15 rounded-xl flex flex-col items-center gap-y-7 justify-center max-w-screen-tablet animate-aparece'>
+                    Enviado
+                </form>
             )
 
             }
