@@ -45,7 +45,7 @@ export default function Paygateway() {
     }
 
     function handleName(e: any) {
-        setName(e.target.value)
+        setName(e.target.value) 
     }
 
     function handleDireccion(e: any) {
@@ -117,9 +117,13 @@ export default function Paygateway() {
                     )}
                 </form>
             ) : (
-                <form className='w-full p-4 bg-dark-blue/15 rounded-xl flex flex-col items-center gap-y-7 justify-center max-w-screen-tablet animate-aparece'>
-                    Enviado
-                </form>
+                <article className='w-full p-4 bg-dark-blue/15 rounded-xl flex flex-col items-center gap-y-7 justify-center max-w-screen-tablet animate-aparece'>
+                    <p>Nombre: {name ? `${name}`: "Usuario"}</p>
+                    <p>Email: {email}</p>
+                    <p>Direccion: {Address}</p>
+                    <p>Telefono: {phone}</p>
+                    <p>Cuantas unidades: {howMuch}</p>
+                </article>
             )
 
             }
