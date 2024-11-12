@@ -7,9 +7,17 @@ export default function Paygateway() {
     const [verified, setVerified] = useState(false);
     const [payMode, setPayMode] = useState(false);
     const [email, setEmail] = useState("");
+    const [name, setName] = useState("");
     const [phone, setPhone] = useState("");
     const [howMuch, setHowMuch] = useState("");
     const [Address, setAddress] = useState("");
+    // const [value, setvalue] = useState({
+    //     name: name,
+    //     email: email,
+    //     phone: phone,
+    //     howMuch: howMuch,
+    //     Address: Address,
+    // })
     const regexNum = /^[0-9-]+$/;
     const regexAddress = /^[a-zA-Z0-9# -]+$/;
 
@@ -36,12 +44,15 @@ export default function Paygateway() {
         setHowMuch(e.target.value)
     }
 
+    function handleName(e: any) {
+        setName(e.target.value)
+    }
+
     function handleDireccion(e: any) {
         if (regexAddress.test(e.target.value)) {
             setAddress(e.target.value);
         }
     }
-
 
     async function handleSubmit(e: any) {
         e.preventDefault();
@@ -58,11 +69,27 @@ export default function Paygateway() {
                     </span>
                     <div className="w-full flex justify-center items-center gap-6 flex-wrap">
                         <div className='w-auto min-w-48 relative'>
-                            <p className={`absolute ${email ? "-top-6 left-3 scale-75" : "top-[0.40rem] left-6"} pointer-events-none text-lg font-medium text-black/95 transition-all duration-200`}>Email</p>
+                            <span className={`absolute ${name ? "-top-6 left-3 scale-75" : "top-[0.40rem] left-6"} pointer-events-none font-medium flex flex-nowrap transition-all duration-200`}>
+                                <p className="text-lg text-black/95">Nombre</p>
+                            </span>
+                            <input type="text" onChange={handleName} className={`relative outline-none w-auto h-fit p-2 border-b-2 ${name ? "border-dark-blue/70 bg-white/25" : "border-black/70 bg-dark-blue/5"} `} />
+                        </div>
+                        <div className='w-auto min-w-48 relative'>
+                            <span className={`absolute ${email ? "-top-6 left-3 scale-75" : "top-[0.40rem] left-6"} pointer-events-none font-medium flex flex-nowrap transition-all duration-200`}>
+                                <p className="text-lg text-black/95">Email</p>
+                                {!name && (
+                                        <p className="text-md text-[#FF8000]">*</p>
+                                )}
+                            </span>
                             <input type="email" onChange={handleEmail} className={`relative outline-none w-auto h-fit p-2 border-b-2 ${email ? "border-dark-blue/70 bg-white/25" : "border-black/70 bg-dark-blue/5"} `} required />
                         </div>
                         <div className='w-auto min-w-48 relative'>
-                            <p className={`absolute ${Address ? "-top-6 left-3 scale-75" : "top-[0.40rem] left-6"} pointer-events-none text-lg font-medium text-black/95 transition-all duration-200`}>Direccion</p>
+                            <span className={`absolute ${Address ? "-top-6 left-3 scale-75" : "top-[0.40rem] left-6"} pointer-events-none font-medium flex flex-nowrap transition-all duration-200`}>
+                                <p className="text-lg text-black/95">Direccion</p>
+                                {!Address && (
+                                        <p className="text-md text-[#FF8000]">*</p>
+                                )}
+                            </span>
                             <p className={`absolute -top-4 right-2 text-xs text-[#ff0000] ${Address ? "opacity-0" : "opacity-100"} transition-all duration-200`}>Solo Medellin - Colombia</p>
                             <input type="text" minLength={7} value={Address} onChange={handleDireccion} className={`relative outline-none uppercase w-auto h-fit p-2 border-b-2 ${Address ? "border-dark-blue/70 bg-white/25" : "border-black/70 bg-dark-blue/5"} `} required />
                         </div>
