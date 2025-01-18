@@ -2,12 +2,12 @@ import { useState } from "react";
 
 interface Props {
   PrinSelected: boolean;
-  AbouSelected: boolean;
+  AboutSelected: boolean;
   cartSelected: boolean;
   cantidad?: number;
 }
 
-export default function Menu({PrinSelected, AbouSelected, cartSelected, cantidad = 0}: Props) {
+export default function Menu({PrinSelected, AboutSelected, cartSelected, cantidad = 0}: Props) {
   const [showMenu, setShowMenu] = useState(false);
 
   const handleClick = () => {
@@ -24,7 +24,7 @@ export default function Menu({PrinSelected, AbouSelected, cartSelected, cantidad
           <li className={`py-2 px-3 w-full ${PrinSelected ? "bg-light-blue" : ""} ${PrinSelected ? "hover:bg-blue" : "hover:bg-light-blue"}`}>
             <a href="/" className="block">🍽️ Carta</a>
           </li>
-          <li className={`py-2 px-3 w-full  ${AbouSelected ? "bg-light-blue" : ""} ${AbouSelected ? "hover:bg-blue" : "hover:bg-light-blue"}`}>
+          <li className={`py-2 px-3 w-full  ${AboutSelected ? "bg-light-blue" : ""} ${AboutSelected ? "hover:bg-blue" : "hover:bg-light-blue"}`}>
             <a href="/informacion" className="block">🧾 Informacion</a>
           </li>
           <li className={`py-2 px-3 w-full flex flex-nowrap justify-between items-center rounded-b-xl ${cartSelected ? "bg-light-blue" : ""} ${cartSelected ? "hover:bg-blue" : "hover:bg-light-blue"}`}>

@@ -6,7 +6,8 @@ export default function Info() {
         <>
             <Navbar
                 homeSelected={false}
-                AbouSelected={true}
+                AboutSelected={true}
+                cartSelected={false}
             />
             <main className="flex flex-col min-h-screen w-screen items-center justify-center p-4 gap-4 border-b-2 border-black/10">
                 <section className="flex flex-wrap-reverse gap-4 items-center justify-center">
