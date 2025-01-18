@@ -3,11 +3,11 @@ import { useState } from "react";
 interface Props {
   PrinSelected: boolean;
   AbouSelected: boolean;
-  cardSelected: boolean;
+  cartSelected: boolean;
   cantidad?: number;
 }
 
-export default function Menu({PrinSelected, AbouSelected, cardSelected, cantidad = 0}: Props) {
+export default function Menu({PrinSelected, AbouSelected, cartSelected, cantidad = 0}: Props) {
   const [showMenu, setShowMenu] = useState(false);
 
   const handleClick = () => {
@@ -27,7 +27,7 @@ export default function Menu({PrinSelected, AbouSelected, cardSelected, cantidad
           <li className={`py-2 px-3 w-full  ${AbouSelected ? "bg-light-blue" : ""} ${AbouSelected ? "hover:bg-blue" : "hover:bg-light-blue"}`}>
             <a href="/informacion" className="block">🧾 Informacion</a>
           </li>
-          <li className={`py-2 px-3 w-full flex flex-nowrap justify-between items-center rounded-b-xl ${cardSelected ? "bg-light-blue" : ""} ${cardSelected ? "hover:bg-blue" : "hover:bg-light-blue"}`}>
+          <li className={`py-2 px-3 w-full flex flex-nowrap justify-between items-center rounded-b-xl ${cartSelected ? "bg-light-blue" : ""} ${cartSelected ? "hover:bg-blue" : "hover:bg-light-blue"}`}>
             <a href="/informacion" className="block">🛒 Carrito</a>
             <p className="size-5 flex justify-center items-center bg-dark-blue rounded-full text-white text-sm">{(cantidad > 9) ? "+9" : cantidad}</p>
           </li>

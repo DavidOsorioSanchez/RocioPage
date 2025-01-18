@@ -6,10 +6,10 @@ import LadleIcon from '/ladle-icon.svg';
 interface Props {
 	homeSelected: boolean;
 	AbouSelected: boolean;
-    cardSelected: boolean;
+    cartSelected: boolean;
 }
 
-export default function Navbar({ homeSelected, AbouSelected, cardSelected }: Props) {
+export default function Navbar({ homeSelected, AbouSelected, cartSelected }: Props) {
     return (
         <nav className="min-h-16 sticky top-0 px-2 flex items-center justify-between bg-[#e3dfda]/90 shadow-xl z-30 max-w-screen animate-bajada min-[340px]:px-4">
             <span className="w-fit flex items-center gap-2 text-black/80 font-bold flex-nowrap py-2 ">
@@ -19,11 +19,11 @@ export default function Navbar({ homeSelected, AbouSelected, cardSelected }: Pro
             <div className="flex items-center gap-2 flex-nowrap ">
                 <ButtonNavigation links="/" title="🍽️ Carta" selected={homeSelected} />
                 <ButtonNavigation links="/informacion" title="🧾 Informacion" selected={AbouSelected} />
-                <ButtonNavigation links='/' title='🛒 Carrito' cantidad={100} selected={cardSelected}/>
+                <ButtonNavigation links='/' title='🛒 Carrito' cantidad={100} selected={cartSelected}/>
                 <Menu
                     PrinSelected={homeSelected}
                     AbouSelected={AbouSelected}
-                    cardSelected={cardSelected}
+                    cartSelected={cartSelected}
                     cantidad={100}
                 />
             </div>

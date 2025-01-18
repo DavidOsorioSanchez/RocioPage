@@ -6,7 +6,7 @@ import CartButton from './CartButton.tsx';
 import { Slide, ToastContainer, toast } from 'react-toastify';
 
 interface Props {
-    id: number;
+    // id: number;
     title: string;
     price: string;
     descripcion: string;
@@ -18,7 +18,7 @@ interface Props {
 }
 
 export default function Modal({
-    id,
+    // id,
     title,
     price,
     descripcion,
