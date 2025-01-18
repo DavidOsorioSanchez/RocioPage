@@ -2,8 +2,11 @@
 import { useState, useEffect } from 'react';
 import PayButton from './PayButton.tsx';
 import Paygateway from './PayGateway.tsx';
+import CartButton from './CartButton.tsx';
+import { Slide, ToastContainer, toast } from 'react-toastify';
 
 interface Props {
+    id: number;
     title: string;
     price: string;
     descripcion: string;
@@ -15,6 +18,7 @@ interface Props {
 }
 
 export default function Modal({
+    id,
     title,
     price,
     descripcion,
@@ -26,6 +30,7 @@ export default function Modal({
 }: Props) {
     const [Picture] = useState(imagenes);
     const [showMenu, setShowMenu] = useState(false);
+    const [showAdd, setShowAdd] = useState(false);
     const [indiceActual, setIndiceActual] = useState(0);
 
     if (Picture.length > 2) {
@@ -43,9 +48,34 @@ export default function Modal({
             return () => clearInterval(intervalo);
         }, [Picture]);
     }
+    
 
     const handleButtonClick = (clicked: boolean) => {
+        if (clicked) {
+            setShowAdd(false);
+        }
         setShowMenu(clicked);
+    };
+
+    const handleButtonAdd = (clicked: boolean) => {
+
+        toast.success('Se a agregado al carrito', {
+            position: "bottom-right",
+            autoClose: 5000,
+            hideProgressBar: true,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+            transition: Slide,
+        });
+
+        if (clicked) {
+            setShowMenu(false);
+        }
+        
+        setShowAdd(clicked);
     };
 
     const foto = Picture[indiceActual];
@@ -89,7 +119,7 @@ export default function Modal({
                                 {descripcion}
                             </p>
                             <div className='w-fit mt-2 px-1 py-4 bg-dark-blue/15 rounded-xl flex !flex-nowrap flex-row text-nowrap items-center gap-x-1 gap-y-2 justify-center max-w-screen-tablet phone:px-8 phone:gap-x-8 phone:rounded-xl min-[800px]:hidden'>
-                                <PayButton showMenu={showMenu} onButtonClick={handleButtonClick}/>
+                                <PayButton showMenu={showMenu} onButtonClick={handleButtonClick} />
                                 <a href={URL} target="_blank" rel="contactar">
                                     <button className='flex items-center justify-center gap-1 min-w-fit bg-[#5BD066] text-white rounded-2xl h-fit w-fit px-2 py-4 font-semibold hover:-skew-x-12 cursor-help hover:brightness-110 transition-all duration-150 phone:px-8'>
                                         <img src="whatsapp-outline.svg" alt="Contactar" className="size-6" />
@@ -98,17 +128,33 @@ export default function Modal({
                                 </a>
                             </div>
                         </div>
-                        <div className='w-full py-4 bg-dark-blue/15 rounded-b-xl flex !flex-nowrap flex-row text-nowrap items-center gap-y-2 justify-center max-w-screen-tablet px-8 gap-x-8 rounded-xl max-[800px]:hidden'>
-                            <PayButton showMenu={showMenu} onButtonClick={handleButtonClick}/>
+                        <article className='w-full py-4 bg-dark-blue/15 rounded-b-xl flex !flex-nowrap flex-row text-nowrap items-center gap-y-2 justify-center max-w-screen-tablet px-8 gap-x-8 rounded-xl max-[800px]:hidden'>
+                            <CartButton showAdd={showAdd} onAddCard={handleButtonAdd} />
+                            <PayButton showMenu={showMenu} onButtonClick={handleButtonClick} />
                             <a href={URL} target="_blank" rel="contactar">
                                 <button className='flex items-center justify-center gap-1 min-w-fit bg-[#5BD066] text-white rounded-2xl h-fit w-fit px-2 py-4 font-semibold hover:-skew-x-12 cursor-help hover:brightness-110 transition-all duration-150 phone:px-8'>
                                     <img src="whatsapp-outline.svg" alt="Contactar" className="size-6" />
                                     <p>Contactar</p>
                                 </button>
                             </a>
-                        </div>
-                        {showMenu && (
-                            <Paygateway/>
+                        </article>
+                        {showMenu && !showAdd && (
+                            <Paygateway />
+                        )}
+                        {showAdd && !showMenu && (
+                            <ToastContainer
+                            position="bottom-center"
+                            autoClose={5000}
+                            hideProgressBar
+                            newestOnTop={false}
+                            closeOnClick
+                            rtl={false}
+                            pauseOnFocusLoss
+                            draggable
+                            pauseOnHover
+                            theme="light"
+                            transition={Slide}
+                            />  
                         )}
                     </div>
                 </section>

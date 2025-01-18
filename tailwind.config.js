@@ -67,7 +67,7 @@ export default {
 				voltear: {
 					'0%': { transform: '-scale-x-0' },
 					'100%': { transform: '-scale-x-100' },
-				},
+				}
 			}
 		},
 		colors: {

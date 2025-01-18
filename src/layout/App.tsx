@@ -11,6 +11,7 @@ export default function App() {
       <Navbar
         homeSelected={true}
         AbouSelected={false}
+        cardSelected={false}
       />
       <main className="min-h-screen w-screen flex flex-col items-center justify-start p-6">
         <Separador
