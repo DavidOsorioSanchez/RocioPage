@@ -32,32 +32,9 @@ input[type="number"]::-webkit-outer-spin-button {
 
 input[type="number"] {
   -moz-appearance: textfield;
+  appearance: textfield;
 }
 
 #Caveat {
   font-family: var(--font-Caveat);
-}
-
-#Agregado{
-  animation: all AgregadoAni 5s !important;
-}
-
-@keyframes AgregadoAni { 
-
-  0% {
-    transform: scale(0);
-  }
-
-  30%{
-    transform: scale(1);
-  }
-
-  90%{
-    transform: scale(1);
-  }
-
-  100% {
-    transform: scale(0);
-    opacity: 0;
-  }
 }
