@@ -2,6 +2,7 @@
 import { useState } from 'react';
 import { comidas } from '../../Comidas.ts';
 import Modal from './Modal.tsx'
+import "../../App.css";
 
 interface ParametroComidas {
     id: number;
@@ -32,7 +33,8 @@ export default function ProductsCards() {
                 <button
                     key={data.id}
                     onClick={() => toggleModal(data.id)}
-                    className="relative rounded-lg w-full h-72 shadow-xl shadow-black/60 border-double border-2 border-black/30 transition-all duration-150 animate-expandir hover:scale-[1.02] active:brightness-75"
+                    id="AnimacionScroll"
+                    className="relative rounded-lg w-full h-72 shadow-xl shadow-black/60 border-double border-2 border-black/30 transition-all duration-150  hover:scale-[1.02] active:brightness-75"
                 >
                     <img src={`/recetas/${data.bgImage}`} alt={`Una foto de ${data.title}`} className="absolute top-0 left-0 w-full h-full aspect-4/3 object-cover rounded-lg" />
                     <footer className="absolute bottom-0 w-full h-fit flex items-center justify-center gap-2 bg-black/80 p-2 text-white rounded-b-lg z-20">
@@ -51,7 +53,7 @@ export default function ProductsCards() {
                 <>
                         {data.modalAbierto && (
                             <Modal 
-                                // id={data.id}
+                                id={data.id}
                                 onOpen={toggleModal}
                                 title={data.title}
                                 price={data.price}

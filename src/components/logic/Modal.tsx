@@ -6,7 +6,7 @@ import CartButton from './CartButton.tsx';
 import { Slide, ToastContainer, toast } from 'react-toastify';
 
 interface Props {
-    // id: number;
+    id: number;
     title: string;
     price: string;
     descripcion: string;
@@ -18,7 +18,7 @@ interface Props {
 }
 
 export default function Modal({
-    // id,
+    id,
     title,
     price,
     descripcion,
@@ -59,6 +59,8 @@ export default function Modal({
 
     const handleButtonAdd = (clicked: boolean) => {
 
+        localStorage.setItem(title, JSON.stringify({ id: id, title: title, price: price, cantidad: 1 }));
+        
         toast.success('Se a agregado al carrito', {
             position: "bottom-right",
             autoClose: 5000,
@@ -86,7 +88,7 @@ export default function Modal({
                 <button onClick={onOpen} className="size-12 p-1 fixed bg-white/75 top-4 left-4 border-2 border-black/50 rounded-full hover:blur-[1px] hover:brightness-125 transition-all duration-150">
                     <img src="/back.svg" alt="Back" className="size-full" />
                 </button>
-                <img src={`/recetas/${foto}`} alt={`Una foto de ${title}`} className="!static w-full h-[40vh] rounded-none aspect-16/9 object-cover border-b-2 border-dark-blue/70 min-[800px]:w-screen min-[800px]:min-h-[95vh] min-[800px]:rounded-l-md  min-[800px]:max-h-screen min-[800px]:max-w-[40%] min-[800px]:aspect-9/16 min-[800px]:border-b-0 min-[800px]:border-r-2 " />
+                <img src={`/recetas/${foto}`} alt={`Una foto de ${title}`} className="!static w-full h-[40vh] rounded-none aspect-16/9 object-cover border-b-2 border-dark-blue/70 min-[800px]:w-screen  min-[800px]:rounded-l-md  min-[800px]:max-h-screen min-[800px]:max-w-[40%] min-[800px]:aspect-9/16 min-[800px]:border-b-0 min-[800px]:border-r-2 min-[800px]:min-h-full" />
                 <section className='absolute top-[40vh] flex justify-center items-center w-full h-auto p-4  min-[800px]:relative min-[800px]:top-0 min-[800px]:w-full min-[800px]:overflow-y-auto'>
                     <div className='flex flex-col justify-start items-center flex-shrink w-screen py-1  gap-y-4 gap-x-0  min-[800px]:w-full min-[800px]:h-auto min-[800px]:justify-center phone:gap-y-6 phone:gap-x-3'>
                         <div className='w-full p-4 bg-dark-blue/15 rounded-xl flex flex-col items-center max-w-screen-tablet '>
@@ -118,7 +120,8 @@ export default function Modal({
                             <p className="text-center text-md font-medium">
                                 {descripcion}
                             </p>
-                            <div className='w-fit mt-2 px-1 py-4 bg-dark-blue/15 rounded-xl flex !flex-nowrap flex-row text-nowrap items-center gap-x-1 gap-y-2 justify-center max-w-screen-tablet phone:px-8 phone:gap-x-8 phone:rounded-xl min-[800px]:hidden'>
+                            <div className='w-fit mt-2 px-1 py-4 bg-dark-blue/15 rounded-xl flex flex-wrap flex-row text-nowrap items-center gap-x-1 gap-y-2 justify-center max-w-screen-tablet phone:px-8 phone:gap-x-8 phone:rounded-xl min-[800px]:hidden'>
+                                <CartButton showAdd={showAdd} onAddCard={handleButtonAdd} />
                                 <PayButton showMenu={showMenu} onButtonClick={handleButtonClick} />
                                 <a href={URL} target="_blank" rel="contactar">
                                     <button className='flex items-center justify-center gap-1 min-w-fit bg-[#5BD066] text-white rounded-2xl h-fit w-fit px-2 py-4 font-semibold hover:-skew-x-12 cursor-help hover:brightness-110 transition-all duration-150 phone:px-8'>
@@ -128,7 +131,7 @@ export default function Modal({
                                 </a>
                             </div>
                         </div>
-                        <article className='w-full py-4 bg-dark-blue/15 rounded-b-xl flex !flex-nowrap flex-row text-nowrap items-center gap-y-2 justify-center max-w-screen-tablet px-8 gap-x-8 rounded-xl max-[800px]:hidden'>
+                        <article className='w-full py-4 bg-dark-blue/15 rounded-b-xl flex !flex-wrap flex-row text-nowrap items-center gap-y-2 justify-center max-w-screen-tablet px-8 gap-x-8 rounded-xl max-[800px]:hidden'>
                             <CartButton showAdd={showAdd} onAddCard={handleButtonAdd} />
                             <PayButton showMenu={showMenu} onButtonClick={handleButtonClick} />
                             <a href={URL} target="_blank" rel="contactar">
@@ -142,19 +145,21 @@ export default function Modal({
                             <Paygateway />
                         )}
                         {showAdd && !showMenu && (
-                            <ToastContainer
-                            position="bottom-center"
-                            autoClose={5000}
-                            hideProgressBar
-                            newestOnTop={false}
-                            closeOnClick
-                            rtl={false}
-                            pauseOnFocusLoss
-                            draggable
-                            pauseOnHover
-                            theme="light"
-                            transition={Slide}
-                            />  
+                            <div className='!absolute w-fit bottom-44 right-4 bg-dark-blue'>
+                                <ToastContainer
+                                    position="bottom-center"
+                                    autoClose={5000}
+                                    hideProgressBar
+                                    newestOnTop={false}
+                                    closeOnClick
+                                    rtl={false}
+                                    pauseOnFocusLoss
+                                    draggable
+                                    pauseOnHover
+                                    theme="light"
+                                    transition={Slide}
+                                /> 
+                            </div>
                         )}
                     </div>
                 </section>

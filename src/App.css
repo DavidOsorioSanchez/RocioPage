@@ -38,3 +38,25 @@ input[type="number"] {
 #Caveat {
   font-family: var(--font-Caveat);
 }
+
+#AnimacionScroll {
+  view-timeline-name: viewObj;
+  
+  animation-name: ScrollProducts;
+  animation-fill-mode: both;
+
+  animation-timeline: viewObj;
+  animation-range: entry 40% cover 70%;
+
+}
+
+@keyframes ScrollProducts {
+  from{
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to{
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
