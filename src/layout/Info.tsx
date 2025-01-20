@@ -1,4 +1,4 @@
-import Navbar from '../components/dump/Navbar.tsx';
+import Navbar from '../components/logic/Navbar.tsx';
 import CopyButton from '../components/logic/CopyButton.tsx';
 
 export default function Info() {

@@ -1,5 +1,5 @@
 import FloatWhatsapp from '../components/dump/FloatWhatsapp'
-import Navbar from '../components/dump/Navbar'
+import Navbar from '../components/logic/Navbar'
 import ProductCard from '../components/logic/ProductsCards'
 import Separador from '../components/dump/Separador'
 import './../App.css'

@@ -192,7 +192,7 @@ export default function Modal({
                         )}
                         {showAdd && !showMenu && (
                             <>
-                                <div className='hidden !absolute w-fit z-50 bottom-44 right-4 bg-dark-blue min-[530px]:block'>
+                                <div className='hidden !absolute w-fit z-50 bg-dark-blue min-[530px]:block'>
                                     <ToastContainer
                                         position="bottom-center"
                                         autoClose={5000}
@@ -207,7 +207,7 @@ export default function Modal({
                                         transition={Slide}
                                     /> 
                                 </div>
-                                <div className='block !absolute w-fit z-50 bottom-44 right-4 bg-dark-blue min-[530px]:hidden'>
+                                <div className='block !absolute w-fit z-50 bg-dark-blue min-[530px]:hidden'>
                                     <ToastContainer
                                         position="top-center"
                                         autoClose={5000}
