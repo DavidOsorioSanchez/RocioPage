@@ -59,9 +59,52 @@ export default function Modal({
 
     const handleButtonAdd = (clicked: boolean) => {
 
+        if (localStorage.getItem(title)) {
+            const item = JSON.parse(localStorage.getItem(title) || '{}');
+            const cantidad: number = item.cantidad + 1;
+            if(cantidad > 10) {
+                localStorage.setItem(title, JSON.stringify({ id: id, title: title, price: price, cantidad: 10 }));
+            } else {
+                localStorage.setItem(title, JSON.stringify({ id: id, title: title, price: price, cantidad: cantidad }));
+            }
+            if(cantidad <= 10) {
+                
+                toast.success(`Se han agregado ${cantidad} unidades de ${title}`, {
+                    position: "bottom-right",
+                    autoClose: 5000,
+                    hideProgressBar: true,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "light",
+                    transition: Slide,
+                });
+            }
+            if(cantidad > 10) {
+                
+                toast.warning(`Has llegado al limite de ${title}`, {
+                    position: "bottom-right",
+                    autoClose: 5000,
+                    hideProgressBar: true,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "light",
+                    transition: Slide,
+                });
+                
+            }
+            if (clicked) {
+                setShowMenu(false);
+            }
+            setShowAdd(clicked);
+            return;
+        }
         localStorage.setItem(title, JSON.stringify({ id: id, title: title, price: price, cantidad: 1 }));
         
-        toast.success('Se a agregado al carrito', {
+        toast.success('Se a agregado al carrito.', {
             position: "bottom-right",
             autoClose: 5000,
             hideProgressBar: true,
