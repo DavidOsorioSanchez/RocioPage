@@ -20,5 +20,5 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true
   },
-  "include": ["src", "src/Comidas.ts"]
+  "include": ["src", "src/utils/Comidas.ts"]
 }

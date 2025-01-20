@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { useState } from 'react';
-import { comidas } from '../../Comidas.ts';
+import { comidas } from '../../utils/Comidas.ts';
 import Modal from './Modal.tsx'
 import "../../App.css";
 

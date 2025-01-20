@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import PayButton from './PayButton.tsx';
 import Paygateway from './PayGateway.tsx';
 import CartButton from './CartButton.tsx';
+import { MaximoPedidos } from '../../utils/magicVariables.ts';
 import { Slide, ToastContainer, toast } from 'react-toastify';
 
 interface Props {
@@ -32,6 +33,7 @@ export default function Modal({
     const [showMenu, setShowMenu] = useState(false);
     const [showAdd, setShowAdd] = useState(false);
     const [indiceActual, setIndiceActual] = useState(0);
+    const [maximaCantidad, setMaximaCantidad] = useState(false);
 
     if (Picture.length > 2) {
         return null;
@@ -62,12 +64,13 @@ export default function Modal({
         if (localStorage.getItem(title)) {
             const item = JSON.parse(localStorage.getItem(title) || '{}');
             const cantidad: number = item.cantidad + 1;
-            if(cantidad > 10) {
-                localStorage.setItem(title, JSON.stringify({ id: id, title: title, price: price, cantidad: 10 }));
+            if(cantidad > MaximoPedidos) {
+                setMaximaCantidad(true);
+                localStorage.setItem(title, JSON.stringify({ id: id, title: title, price: price, cantidad: MaximoPedidos}));
             } else {
-                localStorage.setItem(title, JSON.stringify({ id: id, title: title, price: price, cantidad: cantidad }));
+                localStorage.setItem(title, JSON.stringify({ id: id, title: title, price: price, cantidad: cantidad}));
             }
-            if(cantidad <= 10) {
+            if(cantidad <= MaximoPedidos) {
                 
                 toast.success(`Se han agregado ${cantidad} unidades de ${title}`, {
                     position: "bottom-right",
@@ -81,7 +84,7 @@ export default function Modal({
                     transition: Slide,
                 });
             }
-            if(cantidad > 10) {
+            if(cantidad > MaximoPedidos) {
                 
                 toast.warning(`Has llegado al limite de ${title}`, {
                     position: "bottom-right",
@@ -102,7 +105,7 @@ export default function Modal({
             setShowAdd(clicked);
             return;
         }
-        localStorage.setItem(title, JSON.stringify({ id: id, title: title, price: price, cantidad: 1 }));
+        localStorage.setItem(title, JSON.stringify({ id: id, title: title, price: price, cantidad: 1}));
         
         toast.success('Se a agregado al carrito.', {
             position: "bottom-right",
@@ -164,7 +167,7 @@ export default function Modal({
                                 {descripcion}
                             </p>
                             <div className='w-fit mt-2 px-1 py-4 bg-dark-blue/15 rounded-xl flex flex-wrap flex-row text-nowrap items-center gap-x-1 gap-y-2 justify-center max-w-screen-tablet phone:px-8 phone:gap-x-8 phone:rounded-xl min-[800px]:hidden'>
-                                <CartButton showAdd={showAdd} onAddCard={handleButtonAdd} />
+                                <CartButton showAdd={showAdd} onAddCard={handleButtonAdd} maximaCantidad={maximaCantidad}/>
                                 <PayButton showMenu={showMenu} onButtonClick={handleButtonClick} />
                                 <a href={URL} target="_blank" rel="contactar">
                                     <button className='flex items-center justify-center gap-1 min-w-fit bg-[#5BD066] text-white rounded-2xl h-fit w-fit px-2 py-4 font-semibold hover:-skew-x-12 cursor-help hover:brightness-110 transition-all duration-150 phone:px-8'>
@@ -175,7 +178,7 @@ export default function Modal({
                             </div>
                         </div>
                         <article className='w-full py-4 bg-dark-blue/15 rounded-b-xl flex !flex-wrap flex-row text-nowrap items-center gap-y-2 justify-center max-w-screen-tablet px-8 gap-x-8 rounded-xl max-[800px]:hidden'>
-                            <CartButton showAdd={showAdd} onAddCard={handleButtonAdd} />
+                            <CartButton showAdd={showAdd} onAddCard={handleButtonAdd} maximaCantidad={maximaCantidad}/>
                             <PayButton showMenu={showMenu} onButtonClick={handleButtonClick} />
                             <a href={URL} target="_blank" rel="contactar">
                                 <button className='flex items-center justify-center gap-1 min-w-fit bg-[#5BD066] text-white rounded-2xl h-fit w-fit px-2 py-4 font-semibold hover:-skew-x-12 cursor-help hover:brightness-110 transition-all duration-150 phone:px-8'>
@@ -188,21 +191,39 @@ export default function Modal({
                             <Paygateway />
                         )}
                         {showAdd && !showMenu && (
-                            <div className='!absolute w-fit bottom-44 right-4 bg-dark-blue'>
-                                <ToastContainer
-                                    position="bottom-center"
-                                    autoClose={5000}
-                                    hideProgressBar
-                                    newestOnTop={false}
-                                    closeOnClick
-                                    rtl={false}
-                                    pauseOnFocusLoss
-                                    draggable
-                                    pauseOnHover
-                                    theme="light"
-                                    transition={Slide}
-                                /> 
-                            </div>
+                            <>
+                                <div className='hidden !absolute w-fit z-50 bottom-44 right-4 bg-dark-blue min-[530px]:block'>
+                                    <ToastContainer
+                                        position="bottom-center"
+                                        autoClose={5000}
+                                        hideProgressBar
+                                        newestOnTop={false}
+                                        closeOnClick
+                                        rtl={false}
+                                        pauseOnFocusLoss
+                                        draggable
+                                        pauseOnHover
+                                        theme="light"
+                                        transition={Slide}
+                                    /> 
+                                </div>
+                                <div className='block !absolute w-fit z-50 bottom-44 right-4 bg-dark-blue min-[530px]:hidden'>
+                                    <ToastContainer
+                                        position="top-center"
+                                        autoClose={5000}
+                                        hideProgressBar
+                                        newestOnTop={false}
+                                        closeOnClick
+                                        rtl={false}
+                                        pauseOnFocusLoss
+                                        draggable
+                                        pauseOnHover
+                                        theme="light"
+                                        transition={Slide}
+                                    /> 
+                                </div>
+                            </>
+                            
                         )}
                     </div>
                 </section>
