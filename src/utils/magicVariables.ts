@@ -6,6 +6,6 @@ export const NumberoMaximoDePedidos : boolean = true;
 
 //ruta de la paginas
 
-export const Home : String = '/';
-export const Cart : String = '/cart';
-export const About : String = '/about';
+export const Home : String = 'https://comida-a-un-click.vercel.app/';
+export const Cart : String = 'https://comida-a-un-click.vercel.app/cart';
+export const About : String = 'https://comida-a-un-click.vercel.app/about';
