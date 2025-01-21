@@ -8,7 +8,9 @@ export default function Cart() {
                 AboutSelected={false}
                 cartSelected={true}
             />
-            hola carta
+            <main className="min-h-screen w-screen flex flex-col items-center justify-start p-6">
+
+            </main>
         </>
     )
 }
