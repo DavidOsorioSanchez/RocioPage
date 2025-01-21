@@ -23,7 +23,7 @@ export default function Cart() {
                         ))}
                     </div>
                 </section>
-                <section className="sticky bottom-0 w-full shadow min-[800px]:w-auto min-[800px]:relative min-[800px]:shadow-lg min-[800px]:row-span-full min-[800px]:col-span-2 bg-[#EAE2C6]/40">
+                <section className="sticky bottom-0 w-full shadow min-[800px]:w-auto min-[800px]:relative min-[800px]:shadow-lg min-[800px]:row-span-full min-[800px]:col-span-2 bg-[#EAE2C6]/70">
                     hola
                 </section>
             </main>
