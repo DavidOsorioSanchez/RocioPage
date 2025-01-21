@@ -13,7 +13,7 @@ export default function Cart() {
                 cartSelected={true}
             />
             <main className="min-h-screen w-screen grid grid-rows-7 grid-cols-1 min-[800px]:grid-rows-1 min-[800px]:grid-cols-7">
-                <section className="col-span-5 row-span-full min-[800px]:row-span-full min-[800px]:col-span-5 bg-black/30">
+                <section className="col-span-5 row-span-full overflow-scroll min-[800px]:row-span-full min-[800px]:col-span-5 ">
                     <h2 className="text-2xl font-bold">Carrito</h2>
                     <div>
                         {Object.keys(dataLocalStorage).map(clave => (
@@ -23,7 +23,7 @@ export default function Cart() {
                         ))}
                     </div>
                 </section>
-                <section className="sticky w-full min-[800px]:w-auto min-[800px]:relative min-[800px]:row-span-full min-[800px]:col-span-2 bg-dark-blue/30">
+                <section className="sticky bottom-0 w-full shadow min-[800px]:w-auto min-[800px]:relative min-[800px]:shadow-lg min-[800px]:row-span-full min-[800px]:col-span-2 bg-[#EAE2C6]/40">
                     hola
                 </section>
             </main>
