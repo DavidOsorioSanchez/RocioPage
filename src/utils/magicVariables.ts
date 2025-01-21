@@ -9,3 +9,11 @@ export const NumberoMaximoDePedidos : boolean = true;
 export const Home : String = '/';
 export const Cart : String = '/cart';
 export const About : String = '/about';
+
+//tiempo 
+
+export const tiempoDeCarruselModal : number = 8000;
+
+//recetas
+
+export const tituloReceta : string[] = ["Curry", "Pasta Boloñesa", "Burritos", "Sopon Marinero", "Apple Pie", "Yogurt", "Arroz con leche", "Kefir"];

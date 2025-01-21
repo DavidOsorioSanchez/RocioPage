@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import PayButton from './PayButton.tsx';
 import Paygateway from './PayGateway.tsx';
 import CartButton from './CartButton.tsx';
-import { MaximoPedidos } from '../../utils/magicVariables.ts';
+import { MaximoPedidos, tiempoDeCarruselModal } from '../../utils/magicVariables.ts';
 import { Slide, ToastContainer, toast } from 'react-toastify';
 
 interface Props {
@@ -38,14 +38,13 @@ export default function Modal({
     if (Picture.length > 2) {
         return null;
     } else {
-        // eslint-disable-next-line react-hooks/rules-of-hooks
         useEffect(() => {
             const intervalo = setInterval(() => {
                 setIndiceActual((prevIndice) => {
                     const nuevoIndice = (prevIndice + 1) % Picture.length;
                     return nuevoIndice;
                 });
-            }, 8000);
+            }, tiempoDeCarruselModal);
 
             return () => clearInterval(intervalo);
         }, [Picture]);
