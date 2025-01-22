@@ -53,6 +53,7 @@ export default function ProductsCards() {
                 <>
                         {data.modalAbierto && (
                             <Modal 
+                                key={data.id}
                                 id={data.id}
                                 onOpen={toggleModal}
                                 title={data.title}

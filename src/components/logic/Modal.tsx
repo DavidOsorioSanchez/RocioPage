@@ -65,9 +65,9 @@ export default function Modal({
             const cantidad: number = item.cantidad + 1;
             if(cantidad > MaximoPedidos) {
                 setMaximaCantidad(true);
-                localStorage.setItem(title, JSON.stringify({ id: id, title: title, price: price, cantidad: MaximoPedidos}));
+                localStorage.setItem(title, JSON.stringify({ id: id, title: title, price: price, image: imagenes[0], cantidad: MaximoPedidos}));
             } else {
-                localStorage.setItem(title, JSON.stringify({ id: id, title: title, price: price, cantidad: cantidad}));
+                localStorage.setItem(title, JSON.stringify({ id: id, title: title, price: price, image: imagenes[0], cantidad: cantidad}));
             }
             if(cantidad <= MaximoPedidos) {
                 
@@ -104,7 +104,7 @@ export default function Modal({
             setShowAdd(clicked);
             return;
         }
-        localStorage.setItem(title, JSON.stringify({ id: id, title: title, price: price, cantidad: 1}));
+        localStorage.setItem(title, JSON.stringify({ id: id, title: title, price: price, image: imagenes[0], cantidad: 1}));
         
         toast.success('Se a agregado al carrito.', {
             position: "bottom-right",
@@ -127,7 +127,7 @@ export default function Modal({
 
     const foto = Picture[indiceActual];
     return (
-        <section className='w-screen h-screen fixed z-40'>
+        <section className='w-screen h-screen fixed z-40' key={id}>
             <button onClick={onOpen} className="w-screen h-screen bg-black/50 fixed top-0 left-0 z-40 animate-aparece cursor-default max-[800px]:hidden"></button>
             <article className="fixed flex flex-col top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-screen h-screen rounded-none flex-1 overflow-y-scroll bg-white z-50 animate-aparece min-[800px]:flex-row min-[800px]:max-w-[80vw] min-[800px]:h-[95vh] min-[800px]:overflow-y-hidden min-[800px]:rounded-md">
                 <button onClick={onOpen} className="size-12 p-1 fixed bg-white/75 top-4 left-4 border-2 border-black/50 rounded-full hover:blur-[1px] hover:brightness-125 transition-all duration-150">

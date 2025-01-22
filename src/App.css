@@ -60,8 +60,7 @@ input[type="number"] {
     transform: translateY(0);
   }
 }
-
+/* 
 #Cart {
-  overflow-y: hidden;
-  
-}
+  overflow-x: hidden;
+} */
