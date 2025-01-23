@@ -9,7 +9,7 @@ interface ParametroComidas {
     modalAbierto: any;
     bgImage: string;
     title: string;
-    price: string;
+    price: number;
     descripcion: string;
     imagenes: string[];
     picante: boolean;
@@ -42,7 +42,7 @@ export default function ProductsCards() {
                             {data.title}
                         </p>
                         <p className="text-sm">
-                            {data.price}
+                            $ {data.price}
                         </p>
                     </footer>
                     

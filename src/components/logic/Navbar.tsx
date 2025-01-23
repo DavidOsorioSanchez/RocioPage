@@ -18,6 +18,9 @@ export default function Navbar({ homeSelected, AboutSelected, cartSelected }: Pr
         let sumaTotal = 0;
         for (let i = 0; i < localStorage.length; i++) {
             const clave = localStorage.key(i);
+            if (clave?.charAt(0) === '_') {
+                continue;
+            }
             if (!clave) {
                 continue;
             }

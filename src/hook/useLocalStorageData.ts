@@ -8,6 +8,9 @@ export default function useLocalStorageData() {
             const todosLosDatos: { [key: string]: any } = {};
             for (let i = 0; i < localStorage.length; i++) {
                 const clave = localStorage.key(i);
+                if (clave?.charAt(0) === '_') {
+                    continue;
+                }
                 if (!clave) {
                     continue;
                 }

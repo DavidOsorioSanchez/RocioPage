@@ -9,7 +9,7 @@ import { Slide, ToastContainer, toast } from 'react-toastify';
 interface Props {
     id: number;
     title: string;
-    price: string;
+    price: number;
     descripcion: string;
     imagenes: string[];
     picante: boolean;
@@ -65,9 +65,9 @@ export default function Modal({
             const cantidad: number = item.cantidad + 1;
             if(cantidad > MaximoPedidos) {
                 setMaximaCantidad(true);
-                localStorage.setItem(title, JSON.stringify({ title: title, price: price, image: imagenes[0], cantidad: MaximoPedidos}));
+                localStorage.setItem(title, JSON.stringify({id: id, title: title, price: price, image: imagenes[0], cantidad: MaximoPedidos}));
             } else {
-                localStorage.setItem(title, JSON.stringify({ title: title, price: price, image: imagenes[0], cantidad: cantidad}));
+                localStorage.setItem(title, JSON.stringify({id: id, title: title, price: price, image: imagenes[0], cantidad: cantidad}));
             }
             if(cantidad <= MaximoPedidos) {
                 
@@ -104,7 +104,7 @@ export default function Modal({
             setShowAdd(clicked);
             return;
         }
-        localStorage.setItem(title, JSON.stringify({ title: title, price: price, image: imagenes[0], cantidad: 1}));
+        localStorage.setItem(title, JSON.stringify({id:id, title: title, price: price, image: imagenes[0], cantidad: 1}));
         
         toast.success('Se a agregado al carrito.', {
             position: "bottom-right",
@@ -144,7 +144,7 @@ export default function Modal({
                                             {title}
                                         </h1>
                                         <p className="text-center text-xl font-bold text-nowrap">
-                                            {price}
+                                            $ {price}
                                         </p>
                                     </span>
                                     {
