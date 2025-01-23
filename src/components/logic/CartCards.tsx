@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 interface CartCardsProps {
     title: string;
     price: number;
@@ -6,13 +8,15 @@ interface CartCardsProps {
 }
 
 export default function CartCards({ title, price, image, quantity }: CartCardsProps) {
-    
+    const [eliminado, setEliminado] = useState(false);
+
     const eliminarItem = () => {
         localStorage.removeItem(title);
+        setEliminado(true);
     }
 
     return (
-        <article className="w-4/5 max-w-sm min-w-64 h-auto min-h-56 bg-black/10 flex flex-col justify-between gap-2 rounded-xl m-4">
+        <article className={`${eliminado ? "hidden":"flex"} w-4/5 max-w-sm min-w-64 h-auto min-h-56 bg-black/10  flex-col justify-between gap-2 rounded-xl m-4`}>
             <img src={`/recetas/${image}`} alt="imagen de comida" className="w-full h-auto max-h-36 object-cover aspect-16/9 rounded-t-xl "/>
             <div className="w-full flex flex-col justify-between gap-4 p-4">
                 <header className="w-full flex justify-between flex-nowrap items-center ">
@@ -21,7 +25,7 @@ export default function CartCards({ title, price, image, quantity }: CartCardsPr
                 </header>
                 <footer className="w-full flex justify-between flex-nowrap items-center">
                     <p className="text-lg">Cantidad: {quantity}</p>
-                    <button  onClick={eliminarItem} className="text-lg font-semibold bg-[#BE3144] text-white rounded-md px-2 py-1">Eliminar</button>
+                    <button onClick={eliminarItem} className="text-lg font-semibold bg-[#BE3144] text-white rounded-md px-2 py-1">Eliminar</button>
                 </footer>
             </div>
             {/* <p>id: {id}</p>
