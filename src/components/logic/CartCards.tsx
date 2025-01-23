@@ -9,11 +9,10 @@ export default function CartCards({ title, price, image, quantity }: CartCardsPr
     
     const eliminarItem = () => {
         localStorage.removeItem(title);
-        window.location.reload();
     }
 
     return (
-        <article className="w-4/5 max-w-sm min-w-64 h-auto min-h-56 bg-black/20 flex flex-col gap-2 rounded-xl m-4">
+        <article className="w-4/5 max-w-sm min-w-64 h-auto min-h-56 bg-black/10 flex flex-col justify-between gap-2 rounded-xl m-4">
             <img src={`/recetas/${image}`} alt="imagen de comida" className="w-full h-auto max-h-36 object-cover aspect-16/9 rounded-t-xl "/>
             <div className="w-full flex flex-col justify-between gap-4 p-4">
                 <header className="w-full flex justify-between flex-nowrap items-center ">
