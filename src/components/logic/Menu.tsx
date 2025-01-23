@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Home, About, Cart } from "../../utils/magicVariables";
+import { Link } from "react-router-dom";
 
 interface Props {
   PrinSelected: boolean;
@@ -23,14 +24,15 @@ export default function Menu({PrinSelected, AboutSelected, cartSelected, cantida
       {showMenu && (
         <ul className="absolute top-[4.3rem] w-44 flex flex-col items-center rounded-b-xl bg-[#e3dfda] text-black/80 text-lg font-bold z-10 animate-aparece">
           <li className={`py-2 px-3 w-full ${PrinSelected ? "bg-light-blue" : ""} ${PrinSelected ? "hover:bg-blue" : "hover:bg-light-blue"}`}>
-            <a href={`${Home}`} className="block">🍽️ Carta</a>
+            
+            <Link to={`${Home}`} className="block">🍽️ Carta</Link>
           </li>          
           <li className={`py-2 px-3 w-full flex flex-nowrap justify-between items-center rounded-b-xl ${cartSelected ? "bg-light-blue" : ""} ${cartSelected ? "hover:bg-blue" : "hover:bg-light-blue"}`}>
-            <a href={`${Cart}`} className="block">🛒 Carrito</a>
+            <Link to={`${Cart}`} className="block">🛒 Carrito</Link>
             <p className="size-5 flex justify-center items-center bg-dark-blue rounded-full text-white text-sm">{(cantidad > 9) ? "+9" : cantidad}</p>
           </li>
           <li className={`py-2 px-3 w-full  ${AboutSelected ? "bg-light-blue" : ""} ${AboutSelected ? "hover:bg-blue" : "hover:bg-light-blue"}`}>
-            <a href={`${About}`} className="block">🧾 Informacion</a>
+            <Link to={`${About}`} className="block">🧾 Informacion</Link>
           </li>
         </ul>
       )}
