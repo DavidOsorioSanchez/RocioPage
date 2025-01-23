@@ -41,7 +41,7 @@ export default function Cart() {
                     </div>
 
                 </section>
-                <article className="sticky bottom-0 w-screen bg-black/40 overflow-y-hidden shadow min-[760px]:w-[30vw] min-[760px]:top-20 min-[760px]:h-[87.4vh] min-[760px]:shadow-lg">
+                <article className="sticky bottom-0 w-screen bg-[#e3dfda]/90 overflow-y-hidden shadow-md min-[760px]:w-[30vw] min-[760px]:top-20 min-[760px]:h-[87.4vh] min-[760px]:shadow-lg">
                     hola
                 </article>
             </main>

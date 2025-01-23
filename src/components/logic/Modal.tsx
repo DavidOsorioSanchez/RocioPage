@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { useState, useEffect } from 'react';
-import PayButton from './PayButton.tsx';
+import PayButton from '../dump/PayButton.tsx';
 import Paygateway from './PayGateway.tsx';
 import CartButton from './CartButton.tsx';
 import { MaximoPedidos, tiempoDeCarruselModal } from '../../utils/magicVariables.ts';
