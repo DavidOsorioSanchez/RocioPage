@@ -1,6 +1,7 @@
 import { createRoot } from 'react-dom/client'
 import App from './layout/App.tsx'
 import Info from './layout/Info.tsx'
+import Error from './layout/Error404.tsx'
 import './index.css'
 import React from 'react'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
@@ -11,14 +12,17 @@ const router = createBrowserRouter([
     {
         path: `${Home}`,
         element: <App />,
+        errorElement: <Error />,
     },
     {
         path: `${About}`,
         element: <Info />,
+        errorElement: <Error />,
     },
     {  
         path: `${Cart}`,
         element: <CartPage />,
+        errorElement: <Error />,
     }
 ]);
 
