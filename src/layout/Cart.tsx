@@ -76,6 +76,8 @@ export default function Cart() {
 
         setPrecioString(numeroTotal);
         setPrecioTotal(sumaTotal);
+
+        localStorage.setItem("+TotalCarrito", JSON.stringify({precioTotalPagar: precioTotal}) )
     }
 
     return (
