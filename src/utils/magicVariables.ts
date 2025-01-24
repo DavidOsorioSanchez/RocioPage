@@ -17,3 +17,5 @@ export const tiempoDeCarruselModal : number = 8000;
 //recetas
 
 export const tituloReceta : string[] = ["Curry", "Pasta Boloñesa", "Burritos", "Sopon Marinero", "Apple Pie", "Yogurt", "Arroz con leche", "Kefir"];
+
+// funciones
