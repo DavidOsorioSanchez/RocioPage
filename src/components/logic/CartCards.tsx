@@ -5,26 +5,30 @@ interface CartCardsProps {
     price: number;
     image: string;
     quantity: number;
+    metodoActualizar: any;
 }
 
-export default function CartCards({title, price, image, quantity }: CartCardsProps) {
+export default function CartCards({title, price, image, quantity, metodoActualizar }: CartCardsProps) {
     const [eliminado, setEliminado] = useState(false);
     const [cantidad, setCantidad] = useState(quantity);
     const [precioAcumulativo, setPrecioAcumulativo] = useState(price * quantity);
     const dataLocalStorage = JSON.parse(localStorage.getItem(title) as string);
 
+    
+
     const eliminarItem = () => {
         localStorage.removeItem(title);
         setEliminado(true);
+        metodoActualizar();
     }
 
     const mas = () => {
         if (dataLocalStorage.cantidad < 10) {
             dataLocalStorage.cantidad += 1;
             setCantidad(dataLocalStorage.cantidad);
-
             setPrecioAcumulativo(dataLocalStorage.cantidad * price);
             localStorage.setItem(title, JSON.stringify(dataLocalStorage));
+            metodoActualizar();
         }
     }
 
@@ -34,6 +38,7 @@ export default function CartCards({title, price, image, quantity }: CartCardsPro
             setCantidad(dataLocalStorage.cantidad);
             setPrecioAcumulativo(dataLocalStorage.cantidad * price);
             localStorage.setItem(title, JSON.stringify(dataLocalStorage));
+            metodoActualizar();
         }
     }
 

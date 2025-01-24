@@ -7,7 +7,7 @@ import Separador from "../components/dump/Separador";
 export default function Cart() {
     const dataLocalStorage: { [key: string]: any } = useLocalStorageData();
     const [precioTotal, setPrecioTotal] = useState(0);
-    
+
     useEffect(() => {
         let sumaTotal = 0;
         for (let i = 0; i < localStorage.length; i++) {
@@ -35,6 +35,30 @@ export default function Cart() {
 
     }, [dataLocalStorage]);
 
+    function consultaTotal() {
+        let sumaTotal = 0;
+        for (let i = 0; i < localStorage.length; i++) {
+            const clave = localStorage.key(i);
+            if (clave?.charAt(0) === '_') {
+                continue;
+            }
+            if (!clave) {
+                continue;
+            }
+            const valorString = localStorage.getItem(clave);
+
+            if (!valorString) {
+                continue;
+            }
+            const objeto = JSON.parse(valorString);
+
+            if (objeto && objeto.cantidad && objeto.price) {
+                sumaTotal += objeto.cantidad * objeto.price;
+            }
+        }
+        setPrecioTotal(sumaTotal);
+    }
+    
     return (
         <div id="Cart" className="h-screen w-screen">
             <Navbar
@@ -63,6 +87,7 @@ export default function Cart() {
                                 price={dataLocalStorage[clave].price}
                                 image={dataLocalStorage[clave].image}
                                 quantity={dataLocalStorage[clave].cantidad}
+                                metodoActualizar={consultaTotal}
                             />
                         ))}
                     </div>
