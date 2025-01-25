@@ -3,6 +3,7 @@ import useLocalStorageData from "../hook/useLocalStorageData";
 import Navbar from "../components/logic/Navbar";
 import CartCards from "../components/logic/CartCards";
 import Separador from "../components/dump/Separador";
+import PayGateway from "../components/logic/PayGateway";
 
 export default function Cart() {
     const dataLocalStorage: { [key: string]: any } = useLocalStorageData();
@@ -43,7 +44,7 @@ export default function Cart() {
         setPrecioString(numeroTotal);
         setPrecioTotal(sumaTotal);
 
-        localStorage.setItem("+TotalCarrito", JSON.stringify({precioTotalPagar: precioTotal}) )
+        localStorage.setItem("+TotalCarrito", JSON.stringify({precioTotalPagar: precioTotal, precioTotalString: precioString}) )
     }, [dataLocalStorage]);
 
     function consultaTotal() {
@@ -77,7 +78,7 @@ export default function Cart() {
         setPrecioString(numeroTotal);
         setPrecioTotal(sumaTotal);
 
-        localStorage.setItem("+TotalCarrito", JSON.stringify({precioTotalPagar: precioTotal}) )
+        localStorage.setItem("+TotalCarrito", JSON.stringify({precioTotalPagar: precioTotal, precioTotalString: precioString}) )
     }
 
     return (
@@ -116,8 +117,12 @@ export default function Cart() {
                     </div>
 
                 </section>
-                <article className="relative flex flex-row botton-0 w-screen bg-[#e3dfda]/90 overflow-y-hidden shadow-md min-[760px]:sticky min-[760px]:flex-col min-[760px]:w-[30vw] min-[760px]:top-0 min-[760px]:h-screen min-[760px]:shadow-lg">
+                <article className="relative flex flex-col botton-0 w-screen bg-[#e3dfda]/90 overflow-y-hidden shadow-md min-[760px]:sticky min-[760px]:w-[30vw] min-[760px]:top-0 min-[760px]:h-screen min-[760px]:shadow-lg">
                     <header className="bg-black/10 text-3xl py-8 text-center"><span className="text-dark-blue/90">${precioString}</span> | Precio Total</header>
+                    <PayGateway
+                        title=""
+                        esCarrito={true}
+                    />
                 </article>
             </main>
         </div>

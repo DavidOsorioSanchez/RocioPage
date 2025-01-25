@@ -187,7 +187,10 @@ export default function Modal({
                             </a>
                         </article>
                         {showMenu && !showAdd && (
-                            <Paygateway />
+                            <Paygateway
+                                title={title}
+                                esCarrito={false}
+                            />
                         )}
                         {showAdd && !showMenu && (
                             <>

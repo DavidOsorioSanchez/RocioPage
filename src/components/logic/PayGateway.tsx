@@ -1,16 +1,21 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import ReCAPTCHA from "react-google-recaptcha";
 
+interface Props{
+    title: string;
+    esCarrito: boolean;
+}
 
-export default function Paygateway() {
+export default function Paygateway({title = "",esCarrito=false}:Props) {
     const [verified, setVerified] = useState(false);
     const [payMode, setPayMode] = useState(false);
     const [email, setEmail] = useState("");
     const [name, setName] = useState("");
     const [phone, setPhone] = useState("");
-    const [howMuch, setHowMuch] = useState("");
+    const [howMuch, setHowMuch] = useState(0);
     const [Address, setAddress] = useState("");
+    const [cantidadDefecto, setCantidadDefecto] = useState(0);
     // const [value, setvalue] = useState({
     //     name: name,
     //     email: email,
@@ -20,6 +25,15 @@ export default function Paygateway() {
     // })
     const regexNum = /^[0-9-]+$/;
     const regexAddress = /^[a-zA-Z0-9# -]+$/;
+
+    useEffect(()=>{
+        if(title !== ""){
+            const item = JSON.parse(localStorage.getItem(title) || '{}');
+            setCantidadDefecto(item.cantidad);
+        }else{
+            setCantidadDefecto(0);
+        }
+    },[])
 
     function handleEmail(e: any) {
         setEmail(e.target.value)
@@ -55,6 +69,7 @@ export default function Paygateway() {
     }
 
     async function handleSubmit(e: any) {
+        localStorage.setItem("+FormularioSubmited",JSON.stringify({UserName: name, UserEmail: email, UserAddress: Address.toLowerCase, UserPhone:phone}))
         e.preventDefault();
         setPayMode(!payMode);
     }
@@ -62,10 +77,12 @@ export default function Paygateway() {
     return (
         <>
             {!payMode ? (
-                <form onSubmit={handleSubmit} className='w-full p-4 bg-dark-blue/15 rounded-xl flex flex-col items-center gap-y-7 justify-center max-w-screen-tablet animate-aparece'>
+                <form onSubmit={handleSubmit} className={`w-full p-4 ${esCarrito? "":"bg-dark-blue/15"} rounded-xl flex flex-col items-center gap-y-7 justify-center max-w-screen-tablet animate-aparece`}>
                     <span className="w-full flex justify-around items-center gap-2 ">
                         <p className="text-2xl font-semibold underline">Pago online </p>
-                        <input type="number" onChange={handleHowMuch} minLength={1} min={1} maxLength={2} max={10} className="w-fit min-w-36 h-fit min-h-10 p-2 flex justify-center items-center bg-dark-blue/50 rounded-xl text-center text-lg font-semibold text-white border-none placeholder:text-white/80 placeholder:text-sm placeholder:text-nowrap focus:outline-none" placeholder="cuantas ordenes?" required />
+                        {!esCarrito &&(
+                            <input type="number" value={cantidadDefecto} onChange={handleHowMuch} minLength={1} min={1} maxLength={2} max={10} className="w-fit min-w-36 h-fit min-h-10 p-2 flex justify-center items-center bg-dark-blue/50 rounded-xl text-center text-lg font-semibold text-white border-none placeholder:text-white/80 placeholder:text-sm placeholder:text-nowrap focus:outline-none" placeholder="cuantas ordenes?" required />
+                        )}
                     </span>
                     <div className="w-full flex justify-center items-center gap-6 flex-wrap">
                         <div className='w-auto min-w-48 relative'>
@@ -108,7 +125,7 @@ export default function Paygateway() {
                         sitekey="6Ld86G8qAAAAACyGs2xeBuf_i1J3NAEhyzto_nS0"
                         onChange={handleCaptchaChange}
                     />
-                    {email && Address && verified && phone && howMuch ? (
+                    {email && Address && verified && phone ? (
                         <button type="submit" className="min-w-40 w-fit h-fit p-3 bg-dark-blue/85 text-white font-semibold text-lg rounded-xl hover:bg-dark-blue/80 hover:text-white/80 transition-all duration-200 active:bg-dark-blue">
                             Enviar
                         </button>
@@ -117,7 +134,7 @@ export default function Paygateway() {
                     )}
                 </form>
             ) : (
-                <article className='w-full p-4 bg-dark-blue/15 rounded-xl flex flex-col items-center gap-y-7 justify-center max-w-screen-tablet animate-aparece'>
+                <article className={`w-full p-4 ${esCarrito? "":"bg-dark-blue/15"} rounded-xl flex flex-col items-center gap-y-7 justify-center max-w-screen-tablet animate-aparece`}>
                     <p>Nombre: {name ? `${name}`: "Usuario"}</p>
                     <p>Email: {email}</p>
                     <p>Direccion: {Address}</p>
