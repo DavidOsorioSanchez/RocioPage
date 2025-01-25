@@ -9,6 +9,7 @@ export const NumberoMaximoDePedidos : boolean = true;
 export const Home : String = '/';
 export const Cart : String = '/cart';
 export const About : String = '/about';
+export const SignIn : String = "/SignIn"
 
 //tiempo 
 

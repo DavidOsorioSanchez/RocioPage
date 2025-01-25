@@ -5,7 +5,8 @@ import './index.css'
 import React from 'react'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import CartPage from './layout/Cart.tsx'
-import { Home, About, Cart } from './utils/magicVariables.ts'
+import { Home, About, Cart, SignIn } from './utils/magicVariables.ts'
+import SingIn from './layout/SingIn.tsx'
 
 const router = createBrowserRouter([
     {
@@ -19,6 +20,10 @@ const router = createBrowserRouter([
     {  
         path: `${Cart}`,
         element: <CartPage />,
+    },
+    {
+        path:`${SignIn}`,
+        element: <SingIn/>
     }
 ]);
 
