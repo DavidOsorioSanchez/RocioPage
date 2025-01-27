@@ -19,4 +19,9 @@ export const tiempoDeCarruselModal : number = 8000;
 
 export const tituloReceta : string[] = ["Curry", "Pasta Boloñesa", "Burritos", "Sopon Marinero", "Apple Pie", "Yogurt", "Arroz con leche", "Kefir"];
 
-// funciones
+//Modelos 3D
+
+export const TelefonoModelo: string ="https://prod.spline.design/dJrbRCsKnSdtC-9W/scene.splinecode";
+export const LaptopModelo: string ="https://prod.spline.design/9L07XgxZPxzcP5Ua/scene.splinecode";
+
+
