@@ -37,12 +37,12 @@ export default function ProductsCards() {
                     className="relative rounded-lg w-full h-72 shadow-xl shadow-black/60 border-double border-2 border-black/30 transition-all duration-150  hover:scale-[1.02] active:brightness-75"
                 >
                     <img src={`/recetas/${data.bgImage}`} alt={`Una foto de ${data.title}`} className="absolute top-0 left-0 w-full h-full aspect-4/3 object-cover rounded-lg" />
-                    <footer className="absolute bottom-0 w-full h-fit flex items-center justify-center gap-2 bg-black/80 p-2 text-white rounded-b-lg z-20">
+                    <footer className="absolute bottom-0 w-full h-fit flex items-center justify-center gap-4 bg-black/80 p-2 text-white rounded-b-lg z-20">
                         <p className="text-xl font-semibold capitalize">
                             {data.title}
                         </p>
-                        <p className="text-sm">
-                            $ {data.price}
+                        <p className="text-sm underline">
+                            <span>$</span>{data.price} <span className="text-xs text-white/75">mil</span>
                         </p>
                     </footer>
                     

@@ -13,7 +13,7 @@ export const SignIn : String = "/SignIn"
 
 //tiempo 
 
-export const tiempoDeCarruselModal : number = 8000;
+export const tiempoDeCarruselModal : number = 4000;
 
 //recetas
 

@@ -143,8 +143,8 @@ export default function Modal({
                                         <h1 className="text-2xl font-bold text-center text-nowrap">
                                             {title}
                                         </h1>
-                                        <p className="text-center text-xl font-bold text-nowrap">
-                                            $ {price}
+                                        <p className="text-center text-xl font-bold text-nowrap underline">
+                                            <span>$</span>{price} <span className="text-sm text-black/75">Mil</span>
                                         </p>
                                     </span>
                                     {

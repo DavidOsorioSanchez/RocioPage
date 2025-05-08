@@ -116,7 +116,7 @@ export default function Paygateway({title = "",esCarrito=false}:Props) {
                                 <p>+57</p>
                             </span>
                             <span className="relative">
-                                <p className={`absolute text-lg text-black/95 top-1.5 left-2.5 ${phone ? "opacity-0" : "opacity-100"}`}>000-0000000</p>
+                                <p className={`w-auto min-w-16 absolute text-md text-black/95 top-1.5 text-nowrap left-2.5 ${phone ? "opacity-0" : "opacity-100"}`}>000-0000000</p>
                                 <input type="text" minLength={11} maxLength={11} onChange={handlePhone} value={phone} className={`relative outline-none !w-full h-fit p-2 ${phone ? " bg-white/25" : " bg-dark-blue/5"} transition-all duration-200`} required />
                             </span>
                         </div>
