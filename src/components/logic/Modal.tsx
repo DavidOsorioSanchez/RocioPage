@@ -14,6 +14,7 @@ interface Props {
     imagenes: string[];
     picante: boolean;
     categoria: string[];
+    porciones: number;
     URL: string;
     onOpen: any;
 }
@@ -165,6 +166,14 @@ export default function Modal({
                             <p className="text-center text-md font-medium">
                                 {descripcion}
                             </p>
+                            {/* <div className="flex flex-wrap gap-2 items-center justify-center py-2 px-4">
+                                <span className="text font-semibold text-white bg-dark-blue/70  py-2 px-4 rounded-full">
+                                    Porciones: {porciones}
+                                </span>
+                                <span className="text font-semibold text-white bg-dark-blue/70  py-2 px-4 rounded-full">
+                                    Picante: {picante ? 'Si' : 'No'}
+                                    </span>
+                            </div> */}
                             <div className='w-fit mt-2 px-1 py-4 bg-dark-blue/15 rounded-xl flex flex-wrap flex-row text-nowrap items-center gap-x-1 gap-y-2 justify-center max-w-screen-tablet phone:px-8 phone:gap-x-8 phone:rounded-xl min-[800px]:hidden'>
                                 <CartButton showAdd={showAdd} onAddCard={handleButtonAdd} maximaCantidad={maximaCantidad}/>
                                 <PayButton showMenu={showMenu} onButtonClick={handleButtonClick} />

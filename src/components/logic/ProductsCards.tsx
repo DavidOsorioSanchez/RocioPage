@@ -1,6 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { useState } from 'react';
-import { comidas } from '../../utils/Comidas.ts';
 import Modal from './Modal.tsx'
 import "../../App.css";
 
@@ -13,15 +12,18 @@ interface ParametroComidas {
     descripcion: string;
     imagenes: string[];
     picante: boolean;
+    porciones: number;
     categoria: string[];
     URL: string;
 }
 
-export default function ProductsCards() {
-    const [Comida, setComida] = useState<typeof comidas>(comidas);
+export default function ProductsCards( { Categorias }: { Categorias: ParametroComidas[] }) {
+    console.log(Categorias);
+
+    const [Comida, setComida] = useState<typeof Categorias>(Categorias);  
     
     const toggleModal = (id: number) => {
-        setComida(comidas.map(comidas => 
+        setComida(Categorias.map(comidas => 
             comidas.id === id ? { ...comidas, modalAbierto: !comidas.modalAbierto } : comidas
         ));
     };
@@ -34,7 +36,7 @@ export default function ProductsCards() {
                     key={data.id}
                     onClick={() => toggleModal(data.id)}
                     id="AnimacionScroll"
-                    className="relative rounded-lg w-full h-72 shadow-xl shadow-black/60 border-double border-2 border-black/30 transition-all duration-150  hover:scale-[1.02] active:brightness-75"
+                    className="relative rounded-lg w-full h-72 shadow-Xl border-double border-2 border-black/30 transition-all duration-150  hover:scale-[1.02] active:brightness-75"
                 >
                     <img src={`/recetas/${data.bgImage}`} alt={`Una foto de ${data.title}`} className="absolute top-0 left-0 w-full h-full aspect-4/3 object-cover rounded-lg" />
                     <footer className="absolute bottom-0 w-full h-fit flex items-center justify-center gap-4 bg-black/80 p-2 text-white rounded-b-lg z-20">
@@ -62,6 +64,7 @@ export default function ProductsCards() {
                                 imagenes={data.imagenes}
                                 picante={data.picante}
                                 categoria={data.categoria}
+                                porciones={data.porciones}
                                 URL={data.URL}
                             />
                             )}

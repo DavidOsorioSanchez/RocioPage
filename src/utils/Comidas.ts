@@ -10,7 +10,9 @@ export const comidas= [
         picante: true,
         categoria: ['Indu'],
         porciones: 1,
-        URL: "https://wa.me/573104745978?text=¡Hola!%20Quiero%20Ordenar%20un%20curry🍛."
+        gramos: 300,
+        URL: "https://wa.me/573104745978?text=¡Hola!%20Quiero%20Ordenar%20un%20curry🍛.",
+        Funcion: "Cena"
     },
     {
         id: 1,
@@ -21,9 +23,11 @@ export const comidas= [
         descripcion: "Trae una porcion de pasta, acompañado de una salsa boloñesa, con carne molida y especias. ademas de una porcion de pan de ajo.",
         imagenes: ["pasta.webp"],
         picante: false,
-        categoria: ['Italiana'],
+        categoria: ['Italiana', "Cena"],
         porciones: 1,
-        URL: "https://wa.me/573104745978?text=¡Hola!%20Quiero%20Ordenar%20una%20Pasta%20boloñesa🍝."
+        gramos: 400,
+        URL: "https://wa.me/573104745978?text=¡Hola!%20Quiero%20Ordenar%20una%20Pasta%20boloñesa🍝.",
+        Funcion: "Cena"
     },
     {
         id: 2,
@@ -36,7 +40,9 @@ export const comidas= [
         picante: true,
         categoria: ['Mexicano'],
         porciones: 1,
-        URL: "https://wa.me/573104745978?text=¡Hola!%20Quiero%20Ordenar%20un%20burrito🌯."
+        gramos: 400,
+        URL: "https://wa.me/573104745978?text=¡Hola!%20Quiero%20Ordenar%20un%20burrito🌯.",
+        Funcion: "Cena"
     },
     {
         id: 3,
@@ -49,7 +55,9 @@ export const comidas= [
         picante: false,
         categoria: ['Colombiano'],
         porciones: 8,
-        URL: "https://wa.me/573104745978?text=¡Hola!%20Quiero%20Ordenar%20un%20rollo%20de%20carne🍖."
+        gramos: 1000,
+        URL: "https://wa.me/573104745978?text=¡Hola!%20Quiero%20Ordenar%20un%20rollo%20de%20carne🍖.",
+        Funcion: "Cena"
     },
     {
         id: 4,
@@ -62,7 +70,9 @@ export const comidas= [
         picante: true,
         categoria: ['Costa pacifico'],
         porciones: 1,
-        URL: "https://wa.me/573104745978?text=¡Hola!%20Quiero%20Ordenar%20un%20sopon%20marinero🍲."
+        gramos: 350,
+        URL: "https://wa.me/573104745978?text=¡Hola!%20Quiero%20Ordenar%20un%20sopon%20marinero🍲.",
+        Funcion: "Cena"
     },
     {
         id: 5,
@@ -75,7 +85,9 @@ export const comidas= [
         picante: false,
         categoria: ['Postre', 'Americano'],
         porciones: 10,
-        URL: "https://wa.me/573104745978?text=¡Hola!%20Quiero%20Ordenar%20una%20pie%20de%20manzana🥧."
+        gramos: 1000,
+        URL: "https://wa.me/573104745978?text=¡Hola!%20Quiero%20Ordenar%20una%20pie%20de%20manzana🥧.",
+        Funcion: "Postre"
     },
     // {
     //     id: 5,
@@ -100,18 +112,31 @@ export const comidas= [
         picante: false,
         categoria: ['Postre', 'Desayuno', 'Colombiano'],
         porciones: 1,
-        URL: "https://wa.me/573104745978?text=¡Hola!%20Quiero%20Ordenar%20arroz%20con%20leche🍚."
+        gramos: 250,
+        URL: "https://wa.me/573104745978?text=¡Hola!%20Quiero%20Ordenar%20arroz%20con%20leche🍚.",
+        Funcion: "Postre"
     },
-    // {
-    //     id: 7,
-    //     modalAbierto: false,
-    //     bgImage: "Kefir.jpeg",
-    //     title: "Kefir",
-    //     price: 20,
-    //     descripcion: "El kefir es una receta de origen Rusos 🇷🇺. Una bebida deliciosa y rica en probioticos.",
-    //     imagenes: ["Kefir.jpeg"],
-    //     picante: false,
-    //     categoria: ['Postre', 'Bebida'],
-    //     URL: "https://wa.me/573104745978?text=¡Hola!%20Quiero%20Ordenar%20un%20litro%20de%20kefir🥛."
-    // }
+    {
+        id: 7,
+        modalAbierto: false,
+        bgImage: "Kefir.jpeg",
+        title: "Kefir",
+        price: 20,
+        descripcion: "El kefir es una receta de origen Rusos 🇷🇺. Una bebida deliciosa y rica en probioticos.",
+        imagenes: ["Kefir.jpeg"],
+        picante: false,
+        categoria: ['Postre', 'Bebida'],
+        porciones: 1,
+        gramos: 250,
+        URL: "https://wa.me/573104745978?text=¡Hola!%20Quiero%20Ordenar%20un%20litro%20de%20kefir🥛.",
+        Funcion: "Bebida"
+    }
 ]
+
+export const PlatoFuerte = comidas.filter((comida) => comida.Funcion.toLowerCase() === 'cena' || comida.Funcion.toLowerCase() === 'almuerzo');
+
+export const Desayuno = comidas.filter((comida) => comida.Funcion.toLowerCase() === 'desayuno');
+
+export const Postre = comidas.filter((comida) => comida.Funcion.toLowerCase() === 'postre');
+
+export const Bebida = comidas.filter((comida) => comida.Funcion.toLowerCase() === 'bebida');
