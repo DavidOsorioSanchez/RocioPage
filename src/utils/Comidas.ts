@@ -55,7 +55,7 @@ export const comidas= [
         picante: false,
         categoria: ['Colombiano'],
         porciones: 8,
-        gramos: 1000,
+        gramos: 1400,
         URL: "https://wa.me/573104745978?text=¡Hola!%20Quiero%20Ordenar%20un%20rollo%20de%20carne🍖.",
         Funcion: "Cena"
     },

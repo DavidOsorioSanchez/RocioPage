@@ -13,13 +13,12 @@ interface ParametroComidas {
     imagenes: string[];
     picante: boolean;
     porciones: number;
+    gramos: number;
     categoria: string[];
     URL: string;
 }
 
 export default function ProductsCards( { Categorias }: { Categorias: ParametroComidas[] }) {
-    console.log(Categorias);
-
     const [Comida, setComida] = useState<typeof Categorias>(Categorias);  
     
     const toggleModal = (id: number) => {
@@ -44,7 +43,7 @@ export default function ProductsCards( { Categorias }: { Categorias: ParametroCo
                             {data.title}
                         </p>
                         <p className="text-sm underline">
-                            <span>$</span>{data.price} <span className="text-xs text-white/75">mil</span>
+                            <span>$</span>{data.price}<span className="text-xs text-white/75">,000</span>
                         </p>
                     </footer>
                     
@@ -66,6 +65,7 @@ export default function ProductsCards( { Categorias }: { Categorias: ParametroCo
                                 categoria={data.categoria}
                                 porciones={data.porciones}
                                 URL={data.URL}
+                                gramos={data.gramos}
                             />
                             )}
                     </>

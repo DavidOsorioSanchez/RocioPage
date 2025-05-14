@@ -67,7 +67,11 @@ input[type="number"] {
     transform: translateY(0);
   }
 }
-/* 
+
 #Cart {
   overflow-x: hidden;
-} */
+  background-image: url("/bgImageA.webp") ;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
