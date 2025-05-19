@@ -18,6 +18,7 @@ interface Props {
     gramos: number;
     URL: string;
     onOpen: any;
+    Funcion: string;
 }
 
 export default function Modal({
@@ -31,7 +32,8 @@ export default function Modal({
     URL,
     onOpen,
     porciones,
-    gramos
+    gramos,
+    Funcion
 }: Props) {
     const [Picture] = useState(imagenes);
     const [showMenu, setShowMenu] = useState(false);
@@ -70,9 +72,9 @@ export default function Modal({
             const cantidad: number = item.cantidad + 1;
             if(cantidad > MaximoPedidos) {
                 setMaximaCantidad(true);
-                localStorage.setItem(title, JSON.stringify({id: id, title: title, price: price, image: imagenes[0], cantidad: MaximoPedidos}));
+                localStorage.setItem(title, JSON.stringify({id: id, title: title, price: price, image: imagenes[0], Funcion: Funcion , cantidad: MaximoPedidos}));
             } else {
-                localStorage.setItem(title, JSON.stringify({id: id, title: title, price: price, image: imagenes[0], cantidad: cantidad}));
+                localStorage.setItem(title, JSON.stringify({id: id, title: title, price: price, image: imagenes[0], Funcion: Funcion, cantidad: cantidad}));
             }
             if(cantidad <= MaximoPedidos) {
                 

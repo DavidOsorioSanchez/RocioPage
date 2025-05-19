@@ -15,6 +15,7 @@ interface ParametroComidas {
     porciones: number;
     gramos: number;
     categoria: string[];
+    Funcion: string;
     URL: string;
 }
 
@@ -66,6 +67,7 @@ export default function ProductsCards( { Categorias }: { Categorias: ParametroCo
                                 porciones={data.porciones}
                                 URL={data.URL}
                                 gramos={data.gramos}
+                                Funcion={data.Funcion}
                             />
                             )}
                     </>

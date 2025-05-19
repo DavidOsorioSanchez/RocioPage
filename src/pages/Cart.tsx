@@ -118,10 +118,11 @@ export default function Cart() {
 
                 </section>
                 <article className="relative flex flex-col botton-0 w-screen bg-[#e3dfda]/90 overflow-y-hidden shadow-md min-[760px]:sticky min-[760px]:w-[30vw] min-[760px]:top-0 min-[760px]:h-screen min-[760px]:shadow-lg">
-                    <header className="bg-black/10 text-3xl py-8 text-center"><span className="text-dark-blue/90">${precioString},000</span> | Precio Total</header>
+                    <header className="bg-black/10 text-3xl py-8 text-center"><span className="text-dark-blue/90">${precioString}{precioTotal > 0 ? ",000" : ""}</span> | Precio Total</header>
                     <PayGateway
                         title=""
                         esCarrito={true}
+                        Lista={dataLocalStorage}
                     />
                 </article>
             </main>
