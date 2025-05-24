@@ -63,11 +63,6 @@ export default function CartCards({title, price, image, quantity, metodoActualiz
                     
                 </footer>
             </div>
-            {/* <p>id: {id}</p> 
-            <p>title: {title}</p>
-            <p>precio: {price}</p>
-            <p>imagen: {image}</p>
-            <p>cantidad: {quantity}</p>*/}
             
         </article>
     )

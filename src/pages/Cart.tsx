@@ -39,11 +39,12 @@ export default function Cart() {
             numeroTotal = String(sumaTotal).slice(0, 1) + "." + String(sumaTotal).slice(1);
         }else{
             numeroTotal = String(sumaTotal);
-        }
+        }   
 
         setPrecioString(numeroTotal);
         setPrecioTotal(sumaTotal);
 
+        // localStorage.setItem("+ItemsCarrito", JSON.stringify({Lista: [Object.keys(dataLocalStorage), Object.values(dataLocalStorage.cantidad)]}))
         localStorage.setItem("+TotalCarrito", JSON.stringify({precioTotalPagar: precioTotal, precioTotalString: precioString}) )
     }, [dataLocalStorage]);
 
@@ -78,6 +79,7 @@ export default function Cart() {
         setPrecioString(numeroTotal);
         setPrecioTotal(sumaTotal);
 
+                // localStorage.setItem("+ItemsCarrito", JSON.stringify({Lista: [Object.keys(dataLocalStorage), Object.values(dataLocalStorage.cantidad)]}))
         localStorage.setItem("+TotalCarrito", JSON.stringify({precioTotalPagar: precioTotal, precioTotalString: precioString}) )
     }
 
@@ -120,9 +122,8 @@ export default function Cart() {
                 <article className="relative flex flex-col botton-0 w-screen bg-[#e3dfda]/90 overflow-y-hidden shadow-md min-[760px]:sticky min-[760px]:w-[30vw] min-[760px]:top-0 min-[760px]:h-screen min-[760px]:shadow-lg">
                     <header className="bg-black/10 text-3xl py-8 text-center"><span className="text-dark-blue/90">${precioString}{precioTotal > 0 ? ",000" : ""}</span> | Precio Total</header>
                     <PayGateway
-                        title=""
-                        esCarrito={true}
                         Lista={dataLocalStorage}
+                        precioTotal={precioTotal}
                     />
                 </article>
             </main>

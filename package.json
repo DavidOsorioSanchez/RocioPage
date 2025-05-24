@@ -12,14 +12,16 @@
   "dependencies": {
     "@paypal/react-paypal-js": "^8.7.0",
     "@react-google-maps/api": "^2.20.3",
-    "dotenv": "^16.4.5",
+    "@t3-oss/env-core": "^0.13.4",
+    "axios": "^1.9.0",
     "next-auth": "^4.24.11",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-google-recaptcha": "^3.1.0",
     "react-router-dom": "^6.27.0",
     "react-toastify": "^11.0.3",
-    "rocio-page-remake": "file:"
+    "rocio-page-remake": "file:",
+    "zod": "^3.25.28"
   },
   "devDependencies": {
     "@eslint/js": "^9.11.1",

@@ -1,7 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { useState, useEffect } from 'react';
 import PayButton from '../dump/PayButton.tsx';
-import Paygateway from './PayGateway.tsx';
 import CartButton from './CartButton.tsx';
 import { MaximoPedidos, tiempoDeCarruselModal } from '../../utils/magicVariables.ts';
 import { Slide, ToastContainer, toast } from 'react-toastify';
@@ -204,7 +203,7 @@ export default function Modal({
                         </div>
                         <article className='w-full py-4 bg-dark-blue/15 rounded-b-xl flex !flex-wrap flex-row text-nowrap items-center gap-y-2 justify-center max-w-screen-tablet px-8 gap-x-8 rounded-xl max-[800px]:hidden'>
                             <CartButton showAdd={showAdd} onAddCard={handleButtonAdd} maximaCantidad={maximaCantidad}/>
-                            <PayButton showMenu={showMenu} onButtonClick={handleButtonClick} />
+                            {/* <PayButton showMenu={showMenu} onButtonClick={handleButtonClick} /> */}
                             <a href={URL} target="_blank" rel="contactar">
                                 <button className='flex items-center justify-center gap-1 min-w-fit bg-[#5BD066] text-white rounded-2xl h-fit w-fit px-2 py-4 font-semibold hover:-skew-x-12 cursor-help hover:brightness-110 transition-all duration-150 phone:px-8'>
                                     <img src="whatsapp-outline.svg" alt="Contactar" className="size-6" />
@@ -212,12 +211,12 @@ export default function Modal({
                                 </button>
                             </a>
                         </article>
-                        {showMenu && !showAdd && (
+                        {/* {showMenu && !showAdd && (
                             <Paygateway
                                 title={title}
                                 esCarrito={false}
                             />
-                        )}
+                        )} */}
                         {showAdd && !showMenu && (
                             <>
                                 <div className='hidden !absolute w-fit z-50 bg-dark-blue min-[530px]:block'>
